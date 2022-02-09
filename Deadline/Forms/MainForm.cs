@@ -51,5 +51,17 @@ namespace Deadline
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void pnl_Controls_MouseHover(object sender, EventArgs e)
+        {
+            lbl_CreateTaskShow.Visible = true;
+            pnl_Controls.Width = pnl_Controls.MaximumSize.Width;
+        }
+
+        private void pnl_Controls_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_CreateTaskShow.Visible = false;
+            pnl_Controls.Width = pnl_Controls.MinimumSize.Width;
+        }
     }
 }
