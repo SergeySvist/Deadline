@@ -6,6 +6,7 @@ namespace Deadline
         Point startPoint;
         Size tmpsz;
         Point tmppoint;
+
         public MainForm()
         {
             InitializeComponent();
@@ -40,20 +41,13 @@ namespace Deadline
 
         private void btn_Max_Click(object sender, EventArgs e)
         {
-            if (this.Size == new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height))//this.WindowState == FormWindowState.Maximized)
+            if (this.WindowState == FormWindowState.Maximized)
             {
-                this.Size = new Size(tmpsz.Width, tmpsz.Height);
-                this.Location = new Point(tmppoint.X, tmppoint.Y);
-                
-                //this.WindowState = FormWindowState.Normal;
+                this.WindowState = FormWindowState.Normal;
             }
             else
             {
-                tmppoint = new(this.Location.X, this.Location.Y);
-                tmpsz = new(Width, Height);
-                this.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-                this.Location = new Point(Screen.PrimaryScreen.WorkingArea.X, Screen.PrimaryScreen.WorkingArea.Y);
-                //this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Maximized;
             }
         }
 
@@ -65,13 +59,14 @@ namespace Deadline
         private void pnl_Controls_MouseHover(object sender, EventArgs e)
         {
             lbl_CreateTaskShow.Visible = true;
-            pnl_Controls.Width = pnl_Controls.MaximumSize.Width;
+            pnl_ControlPanel.Width = pnl_ControlPanel.MaximumSize.Width;
         }
 
         private void pnl_Controls_MouseLeave(object sender, EventArgs e)
         {
             lbl_CreateTaskShow.Visible = false;
-            pnl_Controls.Width = pnl_Controls.MinimumSize.Width;
+            pnl_ControlPanel.Width = pnl_ControlPanel.MinimumSize.Width;
         }
+
     }
 }
