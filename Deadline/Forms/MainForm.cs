@@ -4,10 +4,13 @@ namespace Deadline
     {
         bool isDragging = false;
         Point startPoint;
+        Size tmpsz;
+        Point tmppoint;
         public MainForm()
         {
             InitializeComponent();
-            
+            tmpsz = new(Width, Height);
+            tmppoint = new(this.Location.X, this.Location.Y);
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
@@ -37,13 +40,20 @@ namespace Deadline
 
         private void btn_Max_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            if (this.Size == new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height))//this.WindowState == FormWindowState.Maximized)
             {
-                this.WindowState = FormWindowState.Normal;
+                this.Size = new Size(tmpsz.Width, tmpsz.Height);
+                this.Location = new Point(tmppoint.X, tmppoint.Y);
+                
+                //this.WindowState = FormWindowState.Normal;
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized;
+                tmppoint = new(this.Location.X, this.Location.Y);
+                tmpsz = new(Width, Height);
+                this.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                this.Location = new Point(Screen.PrimaryScreen.WorkingArea.X, Screen.PrimaryScreen.WorkingArea.Y);
+                //this.WindowState = FormWindowState.Maximized;
             }
         }
 
