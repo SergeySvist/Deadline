@@ -14,13 +14,13 @@ namespace Deadline
         public TaskStatus Status { get; set; }
         public Color MainColor { get; set; }
 
-        public Task(string name, string description, DateTime lastdate, TaskStatus status, Color color)
+        public Task(string name, string description, DateTime lastdate, TaskStatus status)
         {
             Name = name;
             Description = description;
             LastDate = new DateTime(lastdate.Year, lastdate.Month, lastdate.Day);
             Status = status;
-            MainColor = color;
+            MainColor = Color.FromArgb(new Random().Next(0, 255), new Random().Next(0, 255), new Random().Next(0, 255));
         }
     }
 

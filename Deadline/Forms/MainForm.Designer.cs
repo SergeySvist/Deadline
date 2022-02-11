@@ -60,12 +60,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnl_InProcess = new System.Windows.Forms.FlowLayoutPanel();
@@ -98,11 +92,20 @@
             this.prcs_CompleteProgress = new System.Windows.Forms.ProgressBar();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lbl_ProjName = new System.Windows.Forms.Label();
-            this.page_CreateProj = new System.Windows.Forms.TabPage();
-            this.btn_CreateProjBut = new System.Windows.Forms.Button();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.lbl_CreateProj = new System.Windows.Forms.Label();
             this.page_CreateTask = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel21 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.lbl_CreateTask = new System.Windows.Forms.Label();
             this.page_Clear = new System.Windows.Forms.TabPage();
@@ -115,7 +118,6 @@
             this.btn_CreateProj = new System.Windows.Forms.Button();
             this.lbl_CreateTaskShow = new System.Windows.Forms.Label();
             this.btn_CreateTask = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainIcon)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnl_MainPanel.SuspendLayout();
@@ -131,8 +133,6 @@
             this.pnl_ToDo.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.panel7.SuspendLayout();
             this.pnl_InProcess.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -142,7 +142,6 @@
             this.page_ProjInfo.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.page_CreateProj.SuspendLayout();
             this.page_CreateTask.SuspendLayout();
             this.pnl_ControlPanel.SuspendLayout();
             this.SuspendLayout();
@@ -453,7 +452,6 @@
             // 
             this.pnl_ToDo.AutoScroll = true;
             this.pnl_ToDo.Controls.Add(this.panel9);
-            this.pnl_ToDo.Controls.Add(this.panel21);
             this.pnl_ToDo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_ToDo.Location = new System.Drawing.Point(10, 40);
             this.pnl_ToDo.Name = "pnl_ToDo";
@@ -521,68 +519,6 @@
             this.label15.Size = new System.Drawing.Size(180, 15);
             this.label15.TabIndex = 0;
             this.label15.Text = "Task1";
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel21.Controls.Add(this.panel22);
-            this.panel21.Controls.Add(this.label26);
-            this.panel21.Location = new System.Drawing.Point(3, 123);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(10);
-            this.panel21.Size = new System.Drawing.Size(200, 114);
-            this.panel21.TabIndex = 3;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel22.Controls.Add(this.label23);
-            this.panel22.Controls.Add(this.label24);
-            this.panel22.Controls.Add(this.label25);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(10, 25);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(180, 79);
-            this.panel22.TabIndex = 1;
-            // 
-            // label23
-            // 
-            this.label23.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label23.ForeColor = System.Drawing.SystemColors.Control;
-            this.label23.Location = new System.Drawing.Point(71, 60);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(109, 19);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "11.02.2022 12:00";
-            // 
-            // label24
-            // 
-            this.label24.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label24.ForeColor = System.Drawing.SystemColors.Control;
-            this.label24.Location = new System.Drawing.Point(0, 60);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 19);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "To Do";
-            // 
-            // label25
-            // 
-            this.label25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label25.ForeColor = System.Drawing.SystemColors.Control;
-            this.label25.Location = new System.Drawing.Point(0, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(180, 60);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Desctiption";
-            // 
-            // label26
-            // 
-            this.label26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label26.Location = new System.Drawing.Point(10, 10);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(180, 15);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Task1";
             // 
             // label9
             // 
@@ -753,7 +689,6 @@
             this.pnl_CreatePanel.Border = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
             this.pnl_CreatePanel.BorderEdges = false;
             this.pnl_CreatePanel.Controls.Add(this.page_ProjInfo);
-            this.pnl_CreatePanel.Controls.Add(this.page_CreateProj);
             this.pnl_CreatePanel.Controls.Add(this.page_CreateTask);
             this.pnl_CreatePanel.Controls.Add(this.page_Clear);
             this.pnl_CreatePanel.Divider = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
@@ -956,61 +891,22 @@
             this.lbl_ProjName.Text = "Name";
             this.lbl_ProjName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // page_CreateProj
-            // 
-            this.page_CreateProj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
-            this.page_CreateProj.Controls.Add(this.btn_CreateProjBut);
-            this.page_CreateProj.Controls.Add(this.panel23);
-            this.page_CreateProj.Controls.Add(this.lbl_CreateProj);
-            this.page_CreateProj.Location = new System.Drawing.Point(4, 5);
-            this.page_CreateProj.Name = "page_CreateProj";
-            this.page_CreateProj.Padding = new System.Windows.Forms.Padding(10, 10, 10, 30);
-            this.page_CreateProj.Size = new System.Drawing.Size(243, 616);
-            this.page_CreateProj.TabIndex = 1;
-            this.page_CreateProj.Text = "tabPage1";
-            // 
-            // btn_CreateProjBut
-            // 
-            this.btn_CreateProjBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
-            this.btn_CreateProjBut.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_CreateProjBut.FlatAppearance.BorderSize = 0;
-            this.btn_CreateProjBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CreateProjBut.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_CreateProjBut.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_CreateProjBut.Location = new System.Drawing.Point(10, 532);
-            this.btn_CreateProjBut.Name = "btn_CreateProjBut";
-            this.btn_CreateProjBut.Size = new System.Drawing.Size(223, 54);
-            this.btn_CreateProjBut.TabIndex = 4;
-            this.btn_CreateProjBut.Text = "Create";
-            this.btn_CreateProjBut.UseVisualStyleBackColor = false;
-            this.btn_CreateProjBut.Click += new System.EventHandler(this.btn_Create_Click);
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(10, 47);
-            this.panel23.Margin = new System.Windows.Forms.Padding(3, 3, 3, 75);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(223, 10);
-            this.panel23.TabIndex = 3;
-            // 
-            // lbl_CreateProj
-            // 
-            this.lbl_CreateProj.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_CreateProj.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_CreateProj.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_CreateProj.Location = new System.Drawing.Point(10, 10);
-            this.lbl_CreateProj.Name = "lbl_CreateProj";
-            this.lbl_CreateProj.Size = new System.Drawing.Size(223, 37);
-            this.lbl_CreateProj.TabIndex = 2;
-            this.lbl_CreateProj.Text = "Create Project";
-            this.lbl_CreateProj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // page_CreateTask
             // 
             this.page_CreateTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
+            this.page_CreateTask.Controls.Add(this.comboBox1);
+            this.page_CreateTask.Controls.Add(this.label23);
+            this.page_CreateTask.Controls.Add(this.panel25);
+            this.page_CreateTask.Controls.Add(this.dateTimePicker1);
+            this.page_CreateTask.Controls.Add(this.label22);
+            this.page_CreateTask.Controls.Add(this.panel23);
+            this.page_CreateTask.Controls.Add(this.richTextBox1);
+            this.page_CreateTask.Controls.Add(this.label21);
+            this.page_CreateTask.Controls.Add(this.panel22);
+            this.page_CreateTask.Controls.Add(this.textBox1);
+            this.page_CreateTask.Controls.Add(this.label20);
             this.page_CreateTask.Controls.Add(this.button1);
+            this.page_CreateTask.Controls.Add(this.panel21);
             this.page_CreateTask.Controls.Add(this.panel24);
             this.page_CreateTask.Controls.Add(this.lbl_CreateTask);
             this.page_CreateTask.Location = new System.Drawing.Point(4, 5);
@@ -1019,6 +915,140 @@
             this.page_CreateTask.Size = new System.Drawing.Size(243, 616);
             this.page_CreateTask.TabIndex = 2;
             this.page_CreateTask.Text = "tabPage2";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ToDo",
+            "InProcess",
+            "Complete"});
+            this.comboBox1.Location = new System.Drawing.Point(10, 390);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 23);
+            this.comboBox1.TabIndex = 17;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label23.ForeColor = System.Drawing.SystemColors.Control;
+            this.label23.Location = new System.Drawing.Point(10, 369);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 21);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "Status:";
+            // 
+            // panel25
+            // 
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(10, 339);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(223, 30);
+            this.panel25.TabIndex = 15;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 316);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(223, 23);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label22.ForeColor = System.Drawing.SystemColors.Control;
+            this.label22.Location = new System.Drawing.Point(10, 295);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(81, 21);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Lasd Date:";
+            // 
+            // panel23
+            // 
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(10, 265);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(223, 30);
+            this.panel23.TabIndex = 12;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Location = new System.Drawing.Point(10, 152);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(223, 113);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label21.ForeColor = System.Drawing.SystemColors.Control;
+            this.label21.Location = new System.Drawing.Point(10, 131);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(92, 21);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Description:";
+            // 
+            // panel22
+            // 
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.Location = new System.Drawing.Point(10, 116);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(223, 15);
+            this.panel22.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(10, 93);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(223, 23);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.ForeColor = System.Drawing.SystemColors.Control;
+            this.label20.Location = new System.Drawing.Point(10, 72);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(55, 21);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Name:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(10, 532);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(223, 54);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Create";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_Create_Click);
+            // 
+            // panel21
+            // 
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(10, 57);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(223, 15);
+            this.panel21.TabIndex = 8;
             // 
             // panel24
             // 
@@ -1079,34 +1109,43 @@
             this.lbl_SaveProj.AutoSize = true;
             this.lbl_SaveProj.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_SaveProj.ForeColor = System.Drawing.Color.White;
-            this.lbl_SaveProj.Location = new System.Drawing.Point(78, 177);
+            this.lbl_SaveProj.Location = new System.Drawing.Point(75, 175);
             this.lbl_SaveProj.Name = "lbl_SaveProj";
             this.lbl_SaveProj.Size = new System.Drawing.Size(119, 28);
             this.lbl_SaveProj.TabIndex = 7;
             this.lbl_SaveProj.Text = "Save Project";
+            this.lbl_SaveProj.Visible = false;
+            this.lbl_SaveProj.MouseLeave += new System.EventHandler(this.pnl_Controls_MouseLeave);
+            this.lbl_SaveProj.MouseHover += new System.EventHandler(this.pnl_Controls_MouseHover);
             // 
             // lbl_OpenProj
             // 
             this.lbl_OpenProj.AutoSize = true;
             this.lbl_OpenProj.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_OpenProj.ForeColor = System.Drawing.Color.White;
-            this.lbl_OpenProj.Location = new System.Drawing.Point(78, 129);
+            this.lbl_OpenProj.Location = new System.Drawing.Point(75, 127);
             this.lbl_OpenProj.Name = "lbl_OpenProj";
             this.lbl_OpenProj.Size = new System.Drawing.Size(126, 28);
             this.lbl_OpenProj.TabIndex = 6;
             this.lbl_OpenProj.Text = "Open Project";
+            this.lbl_OpenProj.Visible = false;
+            this.lbl_OpenProj.MouseLeave += new System.EventHandler(this.pnl_Controls_MouseLeave);
+            this.lbl_OpenProj.MouseHover += new System.EventHandler(this.pnl_Controls_MouseHover);
             // 
             // lbl_ShowCreateProj
             // 
             this.lbl_ShowCreateProj.AutoSize = true;
             this.lbl_ShowCreateProj.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_ShowCreateProj.ForeColor = System.Drawing.Color.White;
-            this.lbl_ShowCreateProj.Location = new System.Drawing.Point(78, 81);
+            this.lbl_ShowCreateProj.Location = new System.Drawing.Point(75, 79);
             this.lbl_ShowCreateProj.Name = "lbl_ShowCreateProj";
             this.lbl_ShowCreateProj.Size = new System.Drawing.Size(117, 28);
             this.lbl_ShowCreateProj.TabIndex = 5;
             this.lbl_ShowCreateProj.Text = "New Project";
+            this.lbl_ShowCreateProj.Visible = false;
             this.lbl_ShowCreateProj.Click += new System.EventHandler(this.btn_CreateProj_Click);
+            this.lbl_ShowCreateProj.MouseLeave += new System.EventHandler(this.pnl_Controls_MouseLeave);
+            this.lbl_ShowCreateProj.MouseHover += new System.EventHandler(this.pnl_Controls_MouseHover);
             // 
             // btn_SaveProj
             // 
@@ -1160,6 +1199,8 @@
             this.lbl_CreateTaskShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_CreateTaskShow.Visible = false;
             this.lbl_CreateTaskShow.Click += new System.EventHandler(this.btn_CreateTask_Click);
+            this.lbl_CreateTaskShow.MouseLeave += new System.EventHandler(this.pnl_Controls_MouseLeave);
+            this.lbl_CreateTaskShow.MouseHover += new System.EventHandler(this.pnl_Controls_MouseHover);
             // 
             // btn_CreateTask
             // 
@@ -1178,22 +1219,6 @@
             this.btn_CreateTask.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.btn_CreateTask.UseVisualStyleBackColor = false;
             this.btn_CreateTask.Click += new System.EventHandler(this.btn_CreateTask_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(10, 532);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 54);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btn_Create_Click);
             // 
             // MainForm
             // 
@@ -1233,8 +1258,6 @@
             this.pnl_ToDo.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.pnl_InProcess.ResumeLayout(false);
@@ -1247,8 +1270,8 @@
             this.page_ProjInfo.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            this.page_CreateProj.ResumeLayout(false);
             this.page_CreateTask.ResumeLayout(false);
+            this.page_CreateTask.PerformLayout();
             this.pnl_ControlPanel.ResumeLayout(false);
             this.pnl_ControlPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -1329,20 +1352,22 @@
         private Panel panel8;
         private FlowLayoutPanel pnl_Complete;
         private Label label11;
-        private Panel panel21;
-        private Panel panel22;
-        private Label label23;
-        private Label label24;
-        private Label label25;
-        private Label label26;
-        private TabPage page_CreateProj;
         private TabPage page_CreateTask;
         private TabPage page_Clear;
-        private Panel panel23;
-        private Label lbl_CreateProj;
         private Panel panel24;
         private Label lbl_CreateTask;
-        private Button btn_CreateProjBut;
         private Button button1;
+        private RichTextBox richTextBox1;
+        private Label label21;
+        private Panel panel22;
+        private TextBox textBox1;
+        private Label label20;
+        private Panel panel21;
+        private Label label23;
+        private Panel panel25;
+        private DateTimePicker dateTimePicker1;
+        private Label label22;
+        private Panel panel23;
+        private ComboBox comboBox1;
     }
 }

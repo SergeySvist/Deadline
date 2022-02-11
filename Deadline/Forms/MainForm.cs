@@ -63,24 +63,39 @@ namespace Deadline
 
         private void pnl_Controls_MouseHover(object sender, EventArgs e)
         {
-            lbl_CreateTaskShow.Visible = true;
+            foreach (var c in pnl_ControlPanel.Controls) 
+            {
+                if(c is Label control)
+                    control.Visible = true;
+            }
             pnl_ControlPanel.Width = pnl_ControlPanel.MaximumSize.Width;
         }
 
         private void pnl_Controls_MouseLeave(object sender, EventArgs e)
         {
-            lbl_CreateTaskShow.Visible = false;
+            foreach (var c in pnl_ControlPanel.Controls)
+            {
+                if (c is Label control)
+                    control.Visible = false;
+            }
             pnl_ControlPanel.Width = pnl_ControlPanel.MinimumSize.Width;
         }
 
         private void btn_CreateProj_Click(object sender, EventArgs e)
         {
-            pnl_CreatePanel.SelectedTab = page_CreateProj;
+            CreateProj cp = new();
+            cp.ShowDialog();
+            if (cp.Text != "")
+            {
+                lbl_ProjName.Text = cp.Text;
+                pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            }
         }
 
         private void btn_CreateTask_Click(object sender, EventArgs e)
         {
-            pnl_CreatePanel.SelectedTab = page_CreateTask;
+            if (project != null)
+                pnl_CreatePanel.SelectedTab = page_CreateTask;
         }
 
         private void btn_Create_Click(object sender, EventArgs e)

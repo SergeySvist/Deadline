@@ -4,6 +4,9 @@
     <Compile Update="CustomTab.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Forms\CreateProj.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
