@@ -2,6 +2,10 @@ namespace Deadline
 {
     public partial class MainForm : Form
     {
+        Project project;
+
+        
+        //tmp переменные
         bool isDragging = false;
         Point startPoint;
         Size tmpsz;
@@ -12,6 +16,7 @@ namespace Deadline
             InitializeComponent();
             tmpsz = new(Width, Height);
             tmppoint = new(this.Location.X, this.Location.Y);
+            pnl_CreatePanel.SelectedTab = page_Clear;
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
@@ -68,5 +73,19 @@ namespace Deadline
             pnl_ControlPanel.Width = pnl_ControlPanel.MinimumSize.Width;
         }
 
+        private void btn_CreateProj_Click(object sender, EventArgs e)
+        {
+            pnl_CreatePanel.SelectedTab = page_CreateProj;
+        }
+
+        private void btn_CreateTask_Click(object sender, EventArgs e)
+        {
+            pnl_CreatePanel.SelectedTab = page_CreateTask;
+        }
+
+        private void btn_Create_Click(object sender, EventArgs e)
+        {
+            pnl_CreatePanel.SelectedTab = page_ProjInfo;
+        }
     }
 }
