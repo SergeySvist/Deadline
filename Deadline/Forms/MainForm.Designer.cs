@@ -86,23 +86,23 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.lbl_Completed = new System.Windows.Forms.Label();
+            this.lbl_CompletedCount = new System.Windows.Forms.Label();
             this.lbl_ProgressPercent = new System.Windows.Forms.Label();
             this.lbl_Progress = new System.Windows.Forms.Label();
             this.prcs_CompleteProgress = new System.Windows.Forms.ProgressBar();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lbl_ProjName = new System.Windows.Forms.Label();
             this.page_CreateTask = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_StatusChoose = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date_LastDateChoose = new System.Windows.Forms.DateTimePicker();
             this.label22 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rch_DescInput = new System.Windows.Forms.RichTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rch_NameInput = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -719,7 +719,7 @@
             this.page_ProjInfo.Controls.Add(this.panel16);
             this.page_ProjInfo.Controls.Add(this.lbl_InProcessCount);
             this.page_ProjInfo.Controls.Add(this.panel12);
-            this.page_ProjInfo.Controls.Add(this.lbl_Completed);
+            this.page_ProjInfo.Controls.Add(this.lbl_CompletedCount);
             this.page_ProjInfo.Controls.Add(this.lbl_ProgressPercent);
             this.page_ProjInfo.Controls.Add(this.lbl_Progress);
             this.page_ProjInfo.Controls.Add(this.prcs_CompleteProgress);
@@ -740,7 +740,7 @@
             this.lbl_AllTaskCount.Name = "lbl_AllTaskCount";
             this.lbl_AllTaskCount.Size = new System.Drawing.Size(223, 23);
             this.lbl_AllTaskCount.TabIndex = 10;
-            this.lbl_AllTaskCount.Text = "All Task: 2";
+            this.lbl_AllTaskCount.Text = "All Task: 0";
             this.lbl_AllTaskCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel17
@@ -762,7 +762,7 @@
             this.lbl_ToDoCount.Name = "lbl_ToDoCount";
             this.lbl_ToDoCount.Size = new System.Drawing.Size(223, 23);
             this.lbl_ToDoCount.TabIndex = 8;
-            this.lbl_ToDoCount.Text = "To Do: 1";
+            this.lbl_ToDoCount.Text = "To Do: 0";
             this.lbl_ToDoCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel16
@@ -784,7 +784,7 @@
             this.lbl_InProcessCount.Name = "lbl_InProcessCount";
             this.lbl_InProcessCount.Size = new System.Drawing.Size(223, 23);
             this.lbl_InProcessCount.TabIndex = 6;
-            this.lbl_InProcessCount.Text = "In Process: 1";
+            this.lbl_InProcessCount.Text = "In Process: 0";
             this.lbl_InProcessCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel12
@@ -827,17 +827,17 @@
             this.panel13.Size = new System.Drawing.Size(223, 10);
             this.panel13.TabIndex = 3;
             // 
-            // lbl_Completed
+            // lbl_CompletedCount
             // 
-            this.lbl_Completed.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbl_Completed.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Completed.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_Completed.Location = new System.Drawing.Point(10, 567);
-            this.lbl_Completed.Name = "lbl_Completed";
-            this.lbl_Completed.Size = new System.Drawing.Size(223, 19);
-            this.lbl_Completed.TabIndex = 5;
-            this.lbl_Completed.Text = "Completed: 0";
-            this.lbl_Completed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_CompletedCount.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_CompletedCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_CompletedCount.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_CompletedCount.Location = new System.Drawing.Point(10, 567);
+            this.lbl_CompletedCount.Name = "lbl_CompletedCount";
+            this.lbl_CompletedCount.Size = new System.Drawing.Size(223, 19);
+            this.lbl_CompletedCount.TabIndex = 5;
+            this.lbl_CompletedCount.Text = "Completed: 0";
+            this.lbl_CompletedCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_ProgressPercent
             // 
@@ -846,9 +846,9 @@
             this.lbl_ProgressPercent.ForeColor = System.Drawing.Color.Lime;
             this.lbl_ProgressPercent.Location = new System.Drawing.Point(192, 176);
             this.lbl_ProgressPercent.Name = "lbl_ProgressPercent";
-            this.lbl_ProgressPercent.Size = new System.Drawing.Size(36, 19);
+            this.lbl_ProgressPercent.Size = new System.Drawing.Size(28, 19);
             this.lbl_ProgressPercent.TabIndex = 4;
-            this.lbl_ProgressPercent.Text = "25%";
+            this.lbl_ProgressPercent.Text = "0%";
             // 
             // lbl_Progress
             // 
@@ -867,7 +867,6 @@
             this.prcs_CompleteProgress.Name = "prcs_CompleteProgress";
             this.prcs_CompleteProgress.Size = new System.Drawing.Size(171, 23);
             this.prcs_CompleteProgress.TabIndex = 2;
-            this.prcs_CompleteProgress.Value = 25;
             // 
             // panel11
             // 
@@ -894,16 +893,16 @@
             // page_CreateTask
             // 
             this.page_CreateTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
-            this.page_CreateTask.Controls.Add(this.comboBox1);
+            this.page_CreateTask.Controls.Add(this.cmb_StatusChoose);
             this.page_CreateTask.Controls.Add(this.label23);
             this.page_CreateTask.Controls.Add(this.panel25);
-            this.page_CreateTask.Controls.Add(this.dateTimePicker1);
+            this.page_CreateTask.Controls.Add(this.date_LastDateChoose);
             this.page_CreateTask.Controls.Add(this.label22);
             this.page_CreateTask.Controls.Add(this.panel23);
-            this.page_CreateTask.Controls.Add(this.richTextBox1);
+            this.page_CreateTask.Controls.Add(this.rch_DescInput);
             this.page_CreateTask.Controls.Add(this.label21);
             this.page_CreateTask.Controls.Add(this.panel22);
-            this.page_CreateTask.Controls.Add(this.textBox1);
+            this.page_CreateTask.Controls.Add(this.rch_NameInput);
             this.page_CreateTask.Controls.Add(this.label20);
             this.page_CreateTask.Controls.Add(this.button1);
             this.page_CreateTask.Controls.Add(this.panel21);
@@ -916,18 +915,19 @@
             this.page_CreateTask.TabIndex = 2;
             this.page_CreateTask.Text = "tabPage2";
             // 
-            // comboBox1
+            // cmb_StatusChoose
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_StatusChoose.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmb_StatusChoose.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_StatusChoose.FormattingEnabled = true;
+            this.cmb_StatusChoose.Items.AddRange(new object[] {
             "ToDo",
             "InProcess",
             "Complete"});
-            this.comboBox1.Location = new System.Drawing.Point(10, 390);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 23);
-            this.comboBox1.TabIndex = 17;
+            this.cmb_StatusChoose.Location = new System.Drawing.Point(10, 390);
+            this.cmb_StatusChoose.Name = "cmb_StatusChoose";
+            this.cmb_StatusChoose.Size = new System.Drawing.Size(223, 23);
+            this.cmb_StatusChoose.TabIndex = 17;
             // 
             // label23
             // 
@@ -949,13 +949,13 @@
             this.panel25.Size = new System.Drawing.Size(223, 30);
             this.panel25.TabIndex = 15;
             // 
-            // dateTimePicker1
+            // date_LastDateChoose
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 316);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(223, 23);
-            this.dateTimePicker1.TabIndex = 14;
+            this.date_LastDateChoose.Dock = System.Windows.Forms.DockStyle.Top;
+            this.date_LastDateChoose.Location = new System.Drawing.Point(10, 316);
+            this.date_LastDateChoose.Name = "date_LastDateChoose";
+            this.date_LastDateChoose.Size = new System.Drawing.Size(223, 23);
+            this.date_LastDateChoose.TabIndex = 14;
             // 
             // label22
             // 
@@ -977,14 +977,14 @@
             this.panel23.Size = new System.Drawing.Size(223, 30);
             this.panel23.TabIndex = 12;
             // 
-            // richTextBox1
+            // rch_DescInput
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBox1.Location = new System.Drawing.Point(10, 152);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(223, 113);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.rch_DescInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rch_DescInput.Location = new System.Drawing.Point(10, 152);
+            this.rch_DescInput.Name = "rch_DescInput";
+            this.rch_DescInput.Size = new System.Drawing.Size(223, 113);
+            this.rch_DescInput.TabIndex = 11;
+            this.rch_DescInput.Text = "";
             // 
             // label21
             // 
@@ -1006,13 +1006,13 @@
             this.panel22.Size = new System.Drawing.Size(223, 15);
             this.panel22.TabIndex = 9;
             // 
-            // textBox1
+            // rch_NameInput
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(10, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 23);
-            this.textBox1.TabIndex = 7;
+            this.rch_NameInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rch_NameInput.Location = new System.Drawing.Point(10, 93);
+            this.rch_NameInput.Name = "rch_NameInput";
+            this.rch_NameInput.Size = new System.Drawing.Size(223, 23);
+            this.rch_NameInput.TabIndex = 7;
             // 
             // label20
             // 
@@ -1321,7 +1321,7 @@
         private ProgressBar prcs_CompleteProgress;
         private Panel panel11;
         private Label lbl_ProjName;
-        private Label lbl_Completed;
+        private Label lbl_CompletedCount;
         private Label lbl_AllTaskCount;
         private Panel panel17;
         private Label lbl_ToDoCount;
@@ -1357,17 +1357,17 @@
         private Panel panel24;
         private Label lbl_CreateTask;
         private Button button1;
-        private RichTextBox richTextBox1;
+        private RichTextBox rch_DescInput;
         private Label label21;
         private Panel panel22;
-        private TextBox textBox1;
+        private TextBox rch_NameInput;
         private Label label20;
         private Panel panel21;
         private Label label23;
         private Panel panel25;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker date_LastDateChoose;
         private Label label22;
         private Panel panel23;
-        private ComboBox comboBox1;
+        private ComboBox cmb_StatusChoose;
     }
 }

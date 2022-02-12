@@ -17,6 +17,7 @@ namespace Deadline
         public CreateProj()
         {
             InitializeComponent();
+            Text = "";
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)

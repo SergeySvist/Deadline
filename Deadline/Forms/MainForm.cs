@@ -87,19 +87,44 @@ namespace Deadline
             cp.ShowDialog();
             if (cp.Text != "")
             {
-                lbl_ProjName.Text = cp.Text;
+                project = new Project(cp.Text);
+                UpgradeProjInfo();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
             }
+        }
+
+        private void UpgradeProjInfo()
+        {
+            lbl_ProjName.Text = project.Name;
+
+            prcs_CompleteProgress.Value = project.GetProgress();
+            lbl_ProgressPercent.Text = $"{prcs_CompleteProgress.Value}%";
+
+            lbl_AllTaskCount.Text = lbl_AllTaskCount.Text.Remove(lbl_AllTaskCount.Text.IndexOf(":") + 2).Insert(lbl_AllTaskCount.Text.IndexOf(":") + 2, $"{project.GetCountAllTasks()}");
+            lbl_ToDoCount.Text = AddCountToString(lbl_ToDoCount.Text, TaskStatus.ToDo);
+            lbl_InProcessCount.Text = AddCountToString(lbl_InProcessCount.Text, TaskStatus.InProcess);
+            lbl_CompletedCount.Text = AddCountToString(lbl_CompletedCount.Text, TaskStatus.Complete);
+        }
+
+        private string AddCountToString(string text, TaskStatus status)
+        {
+            return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
         }
 
         private void btn_CreateTask_Click(object sender, EventArgs e)
         {
             if (project != null)
+            {
                 pnl_CreatePanel.SelectedTab = page_CreateTask;
+                cmb_StatusChoose.SelectedIndex = 0;
+            }
         }
 
         private void btn_Create_Click(object sender, EventArgs e)
         {
+            project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
+
+            UpgradeProjInfo();
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
         }
     }
