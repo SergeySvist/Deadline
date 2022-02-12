@@ -111,12 +111,18 @@ namespace Deadline
             return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
         }
 
+        private void ClearCreateTaskMenu()
+        {
+            rch_NameInput.Text = "";
+            rch_DescInput.Text = "";
+            cmb_StatusChoose.SelectedIndex = 0;
+        }
         private void btn_CreateTask_Click(object sender, EventArgs e)
         {
             if (project != null)
             {
                 pnl_CreatePanel.SelectedTab = page_CreateTask;
-                cmb_StatusChoose.SelectedIndex = 0;
+                ClearCreateTaskMenu();
             }
         }
 
