@@ -310,9 +310,9 @@
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(71, 60);
+            this.label4.Location = new System.Drawing.Point(97, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 19);
+            this.label4.Size = new System.Drawing.Size(83, 19);
             this.label4.TabIndex = 2;
             this.label4.Text = "11.02.2022 12:00";
             // 

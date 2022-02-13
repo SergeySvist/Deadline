@@ -88,12 +88,12 @@ namespace Deadline
             if (cp.Text != "")
             {
                 project = new Project(cp.Text);
-                UpgradeProjInfo();
+                UpdateProjInfo();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
             }
         }
 
-        private void UpgradeProjInfo()
+        private void UpdateProjInfo()
         {
             lbl_ProjName.Text = project.Name;
 
@@ -117,12 +117,39 @@ namespace Deadline
             rch_DescInput.Text = "";
             cmb_StatusChoose.SelectedIndex = 0;
         }
+
+        private void ClearTaskList()
+        {
+            while(pnl_TaskList.Controls.Count != 0)
+            {
+                pnl_TaskList.Controls.RemoveAt(0);
+            }
+        }
+
+        private void UpdateTaskList()
+        {
+            ClearTaskList();
+            foreach(var t in project.tasks)
+            {
+                TaskBuilder task = new(t);
+                task.CreateMainPanel();
+                task.CreateNameLabel();
+                task.CreateDescriptionLabel();
+                task.CreateStatusLabel();
+                task.CreateDateLabel();
+                task.CreateSecondPanel();
+
+                pnl_TaskList.Controls.Add(task.GetResult());
+            }
+        }
+
         private void btn_CreateTask_Click(object sender, EventArgs e)
         {
             if (project != null)
             {
                 pnl_CreatePanel.SelectedTab = page_CreateTask;
                 ClearCreateTaskMenu();
+                
             }
         }
 
@@ -130,7 +157,8 @@ namespace Deadline
         {
             project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
 
-            UpgradeProjInfo();
+            UpdateProjInfo();
+            UpdateTaskList();
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
         }
     }
