@@ -131,15 +131,8 @@ namespace Deadline
             ClearTaskList();
             foreach(var t in project.tasks)
             {
-                TaskBuilder task = new(t);
-                task.CreateMainPanel();
-                task.CreateNameLabel();
-                task.CreateDescriptionLabel();
-                task.CreateStatusLabel();
-                task.CreateDateLabel();
-                task.CreateSecondPanel();
-
-                pnl_TaskList.Controls.Add(task.GetResult());
+                TaskDirector task = new TaskDirector(t);
+                pnl_TaskList.Controls.Add(task.BuildFullTask());
             }
         }
 
