@@ -6,36 +6,37 @@ using System.Threading.Tasks;
 
 namespace Deadline
 {
+    [Serializable]
     class Project
     {
         public string Name { get; set; }
-        public List<Task> tasks;
+        public List<Task> Tasks { get; set; }
 
         public Project(string name)
         {
             this.Name = name;
-            tasks = new List<Task>();
+            Tasks = new List<Task>();
         }
 
         public void AddTask(string name, string description, DateTime lastdate, TaskStatus status)
         {
-            tasks.Add(new Task(name, description, lastdate, status));
+            Tasks.Add(new Task(name, description, lastdate, status));
         }
 
         public void DeleteTask(Task task)
         {
-            tasks.Remove(task);
+            Tasks.Remove(task);
         }
 
         public int GetCountAllTasks()
         {
-            return tasks.Count;
+            return Tasks.Count;
         }
 
         public int GetCountTasksFromStatus(TaskStatus status)
         {
             int tmp = 0;
-            foreach(var t in tasks)
+            foreach(var t in Tasks)
             {
                 if (t.Status == status)
                     tmp++;
