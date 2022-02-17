@@ -5,7 +5,6 @@ namespace Deadline
     public partial class MainForm : Form
     {
         Project project;
-
         
         //tmp переменные
         bool isDragging = false;
@@ -16,9 +15,35 @@ namespace Deadline
         public MainForm()
         {
             InitializeComponent();
+
             tmpsz = new(Width, Height);
             tmppoint = new(this.Location.X, this.Location.Y);
             pnl_CreatePanel.SelectedTab = page_Clear;
+        }
+
+        public MainForm(string path)
+        {
+            InitializeComponent();
+            try
+            {
+                FileInfo info = new FileInfo(path);
+                if (info.Extension == ".dlproj")
+                {
+                    Deserealize(path);
+
+                    UpdateProjInfo();
+                    UpdateTaskList();
+                    pnl_CreatePanel.SelectedTab = page_ProjInfo;
+                }
+            }
+            catch
+            {
+                pnl_CreatePanel.SelectedTab = page_Clear;
+            }
+
+
+            tmpsz = new(Width, Height);
+            tmppoint = new(this.Location.X, this.Location.Y);
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
@@ -164,8 +189,7 @@ namespace Deadline
                 SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    using FileStream fs = new FileStream(sfd.FileName, FileMode.Create);
-                    JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
+                    Serealize(sfd.FileName);
                 }
             }
         }
@@ -175,12 +199,37 @@ namespace Deadline
             OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                using FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
-                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+                Deserealize(ofd.FileName);
 
                 UpdateProjInfo();
                 UpdateTaskList();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            }
+        }
+
+        private void Serealize(string fileName)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(fileName, FileMode.Create);
+                JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Deserealize(string path)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(path, FileMode.Open);
+                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
