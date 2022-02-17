@@ -31,7 +31,7 @@ namespace Deadline
         public void CreateMainPanel()
         {
             mainPanel.Size = new Size(200, 115);
-            mainPanel.BackColor = task.MainColor;
+            mainPanel.BackColor = (Color)task.MainColor;
             mainPanel.Padding = new Padding(10);
         }
 
