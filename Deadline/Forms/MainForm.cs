@@ -9,15 +9,12 @@ namespace Deadline
         //tmp переменные
         bool isDragging = false;
         Point startPoint;
-        Size tmpsz;
-        Point tmppoint;
+        int tmp = 0;
 
         public MainForm()
         {
             InitializeComponent();
 
-            tmpsz = new(Width, Height);
-            tmppoint = new(this.Location.X, this.Location.Y);
             pnl_CreatePanel.SelectedTab = page_Clear;
         }
 
@@ -31,8 +28,7 @@ namespace Deadline
                 {
                     Deserealize(path);
 
-                    UpdateProjInfo();
-                    UpdateTaskList();
+                    UpdateAll();
                     pnl_CreatePanel.SelectedTab = page_ProjInfo;
                 }
             }
@@ -40,23 +36,31 @@ namespace Deadline
             {
                 pnl_CreatePanel.SelectedTab = page_Clear;
             }
-
-
-            tmpsz = new(Width, Height);
-            tmppoint = new(this.Location.X, this.Location.Y);
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (isDragging && e.Button == MouseButtons.Left)
             {
                 Point p = PointToScreen(e.Location);
-                Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+                Point p2 = new Point(e.X - pnl_TaskBoard.Location.X+pnl_TaskBoard.Width, e.Y - pnl_TaskBoard.Location.Y + pnl_TaskBoard.Height);
+
+                if (sender is Form f)
+                    f.Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+                else if (sender is Panel pan)
+                    pan.Location = new Point(e.X - this.startPoint.X + pan.Location.X, e.Y - this.startPoint.Y + pan.Location.Y);
+
             }
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
+            if (sender is Panel p && !isDragging)
+            {
+                p.Parent = page_TaskBoard;
+                p.BringToFront();
+            }
+
             isDragging = true;
             startPoint = new Point(e.X, e.Y);
         }
@@ -133,6 +137,72 @@ namespace Deadline
             lbl_CompletedCount.Text = AddCountToString(lbl_CompletedCount.Text, TaskStatus.Complete);
         }
 
+        private void UpdateTaskBoard()
+        {
+            ClearTaskBoard();
+            foreach (var t in project.Tasks)
+            {
+                TaskDirector task = new TaskDirector(t);
+
+                if (t.Status == TaskStatus.ToDo)
+                    pnl_ToDo.Controls.Add(task.BuildFullTask());
+                if (t.Status == TaskStatus.InProcess)
+                    pnl_InProcess.Controls.Add(task.BuildFullTask());
+                if (t.Status == TaskStatus.Complete)
+                    pnl_Complete.Controls.Add(task.BuildFullTask());
+            }
+            AddHandlersToTasks();
+        }
+
+        private void AddHandlersToTasks()
+        {
+            foreach(var t in pnl_ToDo.Controls)
+            {
+                if(t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+            foreach (var t in pnl_InProcess.Controls)
+            {
+                if (t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+            foreach (var t in pnl_Complete.Controls)
+            {
+                if (t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+
+        }
+
+        private void UpdateTaskList()
+        {
+            ClearTaskList();
+            foreach (var t in project.Tasks)
+            {
+                TaskDirector task = new TaskDirector(t);
+                pnl_TaskList.Controls.Add(task.BuildFullTask());
+            }
+        }
+
+        private void UpdateAll()
+        {
+            UpdateTaskBoard();
+            UpdateTaskList();
+            UpdateProjInfo();
+        }
+
         private string AddCountToString(string text, TaskStatus status)
         {
             return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
@@ -153,13 +223,19 @@ namespace Deadline
             }
         }
 
-        private void UpdateTaskList()
+        private void ClearTaskBoard()
         {
-            ClearTaskList();
-            foreach(var t in project.Tasks)
+            while (pnl_ToDo.Controls.Count != 0)
             {
-                TaskDirector task = new TaskDirector(t);
-                pnl_TaskList.Controls.Add(task.BuildFullTask());
+                pnl_ToDo.Controls.RemoveAt(0);
+            }
+            while (pnl_InProcess.Controls.Count != 0)
+            {
+                pnl_InProcess.Controls.RemoveAt(0);
+            }
+            while (pnl_Complete.Controls.Count != 0)
+            {
+                pnl_Complete.Controls.RemoveAt(0);
             }
         }
 
@@ -177,8 +253,7 @@ namespace Deadline
         {
             project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
 
-            UpdateProjInfo();
-            UpdateTaskList();
+            UpdateAll();
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
         }
 
@@ -201,8 +276,7 @@ namespace Deadline
             {
                 Deserealize(ofd.FileName);
 
-                UpdateProjInfo();
-                UpdateTaskList();
+                UpdateAll();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
             }
         }
