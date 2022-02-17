@@ -1158,6 +1158,7 @@
             this.btn_SaveProj.Size = new System.Drawing.Size(26, 26);
             this.btn_SaveProj.TabIndex = 4;
             this.btn_SaveProj.UseVisualStyleBackColor = true;
+            this.btn_SaveProj.Click += new System.EventHandler(this.btn_SaveProj_Click);
             // 
             // btn_OpenProj
             // 
@@ -1170,6 +1171,7 @@
             this.btn_OpenProj.Size = new System.Drawing.Size(26, 26);
             this.btn_OpenProj.TabIndex = 3;
             this.btn_OpenProj.UseVisualStyleBackColor = true;
+            this.btn_OpenProj.Click += new System.EventHandler(this.btn_OpenProj_Click);
             // 
             // btn_CreateProj
             // 

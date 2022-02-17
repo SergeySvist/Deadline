@@ -26,6 +26,7 @@ namespace Deadline
 
     struct RGBColor
     {
+        // Сделано потому-что переменная System.Drawing.Color неправильно десереализуется
         public int R { get; set; }
         public int G { get; set; }
         public int B { get; set; }

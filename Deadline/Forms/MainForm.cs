@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace Deadline
 {
     public partial class MainForm : Form
@@ -129,7 +131,7 @@ namespace Deadline
         private void UpdateTaskList()
         {
             ClearTaskList();
-            foreach(var t in project.tasks)
+            foreach(var t in project.Tasks)
             {
                 TaskDirector task = new TaskDirector(t);
                 pnl_TaskList.Controls.Add(task.BuildFullTask());
@@ -153,6 +155,33 @@ namespace Deadline
             UpdateProjInfo();
             UpdateTaskList();
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
+        }
+
+        private void btn_SaveProj_Click(object sender, EventArgs e)
+        {
+            if(project != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using FileStream fs = new FileStream(sfd.FileName, FileMode.Create);
+                    JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
+                }
+            }
+        }
+
+        private void btn_OpenProj_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                using FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
+                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+
+                UpdateProjInfo();
+                UpdateTaskList();
+                pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            }
         }
     }
 }
