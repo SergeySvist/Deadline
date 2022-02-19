@@ -9,7 +9,7 @@ namespace Deadline
         //tmp переменные
         bool isDragging = false;
         Point startPoint;
-        int tmp = 0;
+        Control tmpParent;
 
         public MainForm()
         {
@@ -43,13 +43,8 @@ namespace Deadline
             if (isDragging && e.Button == MouseButtons.Left)
             {
                 Point p = PointToScreen(e.Location);
-                Point p2 = new Point(e.X - pnl_TaskBoard.Location.X+pnl_TaskBoard.Width, e.Y - pnl_TaskBoard.Location.Y + pnl_TaskBoard.Height);
-
-                if (sender is Form f)
-                    f.Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
-                else if (sender is Panel pan)
+                if (sender is Control pan)
                     pan.Location = new Point(e.X - this.startPoint.X + pan.Location.X, e.Y - this.startPoint.Y + pan.Location.Y);
-
             }
         }
 
@@ -57,6 +52,7 @@ namespace Deadline
         {
             if (sender is Panel p && !isDragging)
             {
+                tmpParent = p.Parent;
                 p.Parent = page_TaskBoard;
                 p.BringToFront();
             }
@@ -67,7 +63,26 @@ namespace Deadline
 
         private void MainForm_MouseUp(object sender, MouseEventArgs e)
         {
-            isDragging = false;
+           if (sender is Panel p)
+           {
+                int columnSZ = pnl_TaskBoard.Width / 3;
+                page_TaskBoard.Controls.Remove(p);
+
+                if (p.Location.X <= columnSZ)
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.ToDo;
+                }
+                else if (p.Location.X <= columnSZ * 2)
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.InProcess;
+                }
+                else
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.Complete;
+                }
+                UpdateAll();
+           }
+           isDragging = false;
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
@@ -245,7 +260,6 @@ namespace Deadline
             {
                 pnl_CreatePanel.SelectedTab = page_CreateTask;
                 ClearCreateTaskMenu();
-                
             }
         }
 

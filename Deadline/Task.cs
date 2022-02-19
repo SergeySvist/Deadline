@@ -8,14 +8,16 @@ namespace Deadline
 {
     class Task
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime LastDate { get; set; }
         public TaskStatus Status { get; set; }
         public RGBColor MainColor { get; set; }
 
-        public Task(string name, string description, DateTime lastdate, TaskStatus status)
+        public Task(int id, string name, string description, DateTime lastdate, TaskStatus status)
         {
+            Id = id;
             Name = name;
             Description = description;
             LastDate = new DateTime(lastdate.Year, lastdate.Month, lastdate.Day);

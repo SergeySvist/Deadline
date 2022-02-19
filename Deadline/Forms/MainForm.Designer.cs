@@ -106,6 +106,7 @@
             this.btn_CreateProj = new System.Windows.Forms.Button();
             this.lbl_CreateTaskShow = new System.Windows.Forms.Label();
             this.btn_CreateTask = new System.Windows.Forms.Button();
+            this.pnl_Calendar = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.MainIcon)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnl_MainPanel.SuspendLayout();
@@ -121,6 +122,7 @@
             this.panel19.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.page_Calendar.SuspendLayout();
             this.pnl_CreatePanel.SuspendLayout();
             this.page_ProjInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -524,6 +526,7 @@
             // page_Calendar
             // 
             this.page_Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
+            this.page_Calendar.Controls.Add(this.pnl_Calendar);
             this.page_Calendar.Location = new System.Drawing.Point(4, 54);
             this.page_Calendar.Name = "page_Calendar";
             this.page_Calendar.Padding = new System.Windows.Forms.Padding(3);
@@ -1084,6 +1087,29 @@
             this.btn_CreateTask.UseVisualStyleBackColor = false;
             this.btn_CreateTask.Click += new System.EventHandler(this.btn_CreateTask_Click);
             // 
+            // pnl_Calendar
+            // 
+            this.pnl_Calendar.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+            this.pnl_Calendar.ColumnCount = 7;
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Calendar.Location = new System.Drawing.Point(3, 3);
+            this.pnl_Calendar.Name = "pnl_Calendar";
+            this.pnl_Calendar.RowCount = 5;
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.Size = new System.Drawing.Size(850, 561);
+            this.pnl_Calendar.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1124,6 +1150,7 @@
             this.panel20.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.page_Calendar.ResumeLayout(false);
             this.pnl_CreatePanel.ResumeLayout(false);
             this.page_ProjInfo.ResumeLayout(false);
             this.page_ProjInfo.PerformLayout();
@@ -1216,5 +1243,6 @@
         private Label label22;
         private Panel panel23;
         private ComboBox cmb_StatusChoose;
+        private TableLayoutPanel pnl_Calendar;
     }
 }
