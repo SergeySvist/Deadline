@@ -42,26 +42,15 @@
             this.pnl_TaskBoard = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnl_ToDo = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnl_InProcess = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnl_Complete = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.page_Calendar = new System.Windows.Forms.TabPage();
+            this.pnl_Calendar = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pnl_CreatePanel = new Deadline.CustomTabControl();
             this.page_ProjInfo = new System.Windows.Forms.TabPage();
@@ -106,7 +95,6 @@
             this.btn_CreateProj = new System.Windows.Forms.Button();
             this.lbl_CreateTaskShow = new System.Windows.Forms.Label();
             this.btn_CreateTask = new System.Windows.Forms.Button();
-            this.pnl_Calendar = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.MainIcon)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnl_MainPanel.SuspendLayout();
@@ -114,13 +102,7 @@
             this.page_TaskBoard.SuspendLayout();
             this.pnl_TaskBoard.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.pnl_ToDo.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.pnl_InProcess.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
             this.page_Calendar.SuspendLayout();
             this.pnl_CreatePanel.SuspendLayout();
@@ -313,74 +295,11 @@
             // 
             this.pnl_ToDo.AllowDrop = true;
             this.pnl_ToDo.AutoScroll = true;
-            this.pnl_ToDo.Controls.Add(this.panel9);
             this.pnl_ToDo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_ToDo.Location = new System.Drawing.Point(10, 40);
             this.pnl_ToDo.Name = "pnl_ToDo";
             this.pnl_ToDo.Size = new System.Drawing.Size(267, 515);
             this.pnl_ToDo.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel9.Controls.Add(this.panel18);
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(10);
-            this.panel9.Size = new System.Drawing.Size(200, 114);
-            this.panel9.TabIndex = 2;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel18.Controls.Add(this.label12);
-            this.panel18.Controls.Add(this.label13);
-            this.panel18.Controls.Add(this.label14);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(10, 25);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(180, 79);
-            this.panel18.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(71, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 19);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "11.02.2022 12:00";
-            // 
-            // label13
-            // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(0, 60);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 19);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "To Do";
-            // 
-            // label14
-            // 
-            this.label14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label14.ForeColor = System.Drawing.SystemColors.Control;
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(180, 60);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Desctiption";
-            // 
-            // label15
-            // 
-            this.label15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label15.Location = new System.Drawing.Point(10, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(180, 15);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Task1";
             // 
             // label9
             // 
@@ -409,74 +328,11 @@
             // 
             this.pnl_InProcess.AllowDrop = true;
             this.pnl_InProcess.AutoScroll = true;
-            this.pnl_InProcess.Controls.Add(this.panel19);
             this.pnl_InProcess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_InProcess.Location = new System.Drawing.Point(10, 40);
             this.pnl_InProcess.Name = "pnl_InProcess";
             this.pnl_InProcess.Size = new System.Drawing.Size(267, 515);
             this.pnl_InProcess.TabIndex = 1;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel19.Controls.Add(this.panel20);
-            this.panel19.Controls.Add(this.label19);
-            this.panel19.Location = new System.Drawing.Point(3, 3);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(10);
-            this.panel19.Size = new System.Drawing.Size(200, 114);
-            this.panel19.TabIndex = 3;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel20.Controls.Add(this.label16);
-            this.panel20.Controls.Add(this.label17);
-            this.panel20.Controls.Add(this.label18);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(10, 25);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(180, 79);
-            this.panel20.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(71, 60);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(109, 19);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "11.02.2022 12:00";
-            // 
-            // label17
-            // 
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(0, 60);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 19);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "In Process";
-            // 
-            // label18
-            // 
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(0, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(180, 60);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Desctiption";
-            // 
-            // label19
-            // 
-            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label19.Location = new System.Drawing.Point(10, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(180, 15);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Task2";
             // 
             // label10
             // 
@@ -533,6 +389,29 @@
             this.page_Calendar.Size = new System.Drawing.Size(856, 567);
             this.page_Calendar.TabIndex = 2;
             this.page_Calendar.Text = "Calendar";
+            // 
+            // pnl_Calendar
+            // 
+            this.pnl_Calendar.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+            this.pnl_Calendar.ColumnCount = 7;
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Calendar.Location = new System.Drawing.Point(3, 3);
+            this.pnl_Calendar.Name = "pnl_Calendar";
+            this.pnl_Calendar.RowCount = 5;
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.Size = new System.Drawing.Size(850, 561);
+            this.pnl_Calendar.TabIndex = 0;
             // 
             // panel10
             // 
@@ -1087,29 +966,6 @@
             this.btn_CreateTask.UseVisualStyleBackColor = false;
             this.btn_CreateTask.Click += new System.EventHandler(this.btn_CreateTask_Click);
             // 
-            // pnl_Calendar
-            // 
-            this.pnl_Calendar.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-            this.pnl_Calendar.ColumnCount = 7;
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.pnl_Calendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Calendar.Location = new System.Drawing.Point(3, 3);
-            this.pnl_Calendar.Name = "pnl_Calendar";
-            this.pnl_Calendar.RowCount = 5;
-            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.Size = new System.Drawing.Size(850, 561);
-            this.pnl_Calendar.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1140,14 +996,8 @@
             this.pnl_TaskBoard.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.pnl_ToDo.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.pnl_InProcess.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.page_Calendar.ResumeLayout(false);
@@ -1207,21 +1057,9 @@
         private Panel panel13;
         private Panel panel6;
         private FlowLayoutPanel pnl_ToDo;
-        private Panel panel9;
-        private Panel panel18;
-        private Label label12;
-        private Label label13;
-        private Label label14;
-        private Label label15;
         private Label label9;
         private Panel panel7;
         private FlowLayoutPanel pnl_InProcess;
-        private Panel panel19;
-        private Panel panel20;
-        private Label label16;
-        private Label label17;
-        private Label label18;
-        private Label label19;
         private Label label10;
         private Panel panel8;
         private FlowLayoutPanel pnl_Complete;
