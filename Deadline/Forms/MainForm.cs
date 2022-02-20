@@ -42,7 +42,6 @@ namespace Deadline
         {
             if (isDragging && e.Button == MouseButtons.Left)
             {
-                Point p = PointToScreen(e.Location);
                 if (sender is Control pan)
                     pan.Location = new Point(e.X - this.startPoint.X + pan.Location.X, e.Y - this.startPoint.Y + pan.Location.Y);
             }

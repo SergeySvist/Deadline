@@ -51,6 +51,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.page_Calendar = new System.Windows.Forms.TabPage();
             this.pnl_Calendar = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_ThisDate = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pnl_CreatePanel = new Deadline.CustomTabControl();
             this.page_ProjInfo = new System.Windows.Forms.TabPage();
@@ -122,9 +123,6 @@
             this.MainIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.MainIcon.TabIndex = 1;
             this.MainIcon.TabStop = false;
-            this.MainIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.MainIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.MainIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // lbl_Deadline
             // 
@@ -136,9 +134,6 @@
             this.lbl_Deadline.Size = new System.Drawing.Size(114, 32);
             this.lbl_Deadline.TabIndex = 2;
             this.lbl_Deadline.Text = "DeadLine";
-            this.lbl_Deadline.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.lbl_Deadline.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.lbl_Deadline.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // btn_Close
             // 
@@ -383,6 +378,7 @@
             // 
             this.page_Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
             this.page_Calendar.Controls.Add(this.pnl_Calendar);
+            this.page_Calendar.Controls.Add(this.lbl_ThisDate);
             this.page_Calendar.Location = new System.Drawing.Point(4, 54);
             this.page_Calendar.Name = "page_Calendar";
             this.page_Calendar.Padding = new System.Windows.Forms.Padding(3);
@@ -402,7 +398,7 @@
             this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.pnl_Calendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Calendar.Location = new System.Drawing.Point(3, 3);
+            this.pnl_Calendar.Location = new System.Drawing.Point(3, 34);
             this.pnl_Calendar.Name = "pnl_Calendar";
             this.pnl_Calendar.RowCount = 5;
             this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -410,8 +406,20 @@
             this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pnl_Calendar.Size = new System.Drawing.Size(850, 561);
+            this.pnl_Calendar.Size = new System.Drawing.Size(850, 530);
             this.pnl_Calendar.TabIndex = 0;
+            // 
+            // lbl_ThisDate
+            // 
+            this.lbl_ThisDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_ThisDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ThisDate.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_ThisDate.Location = new System.Drawing.Point(3, 3);
+            this.lbl_ThisDate.Name = "lbl_ThisDate";
+            this.lbl_ThisDate.Size = new System.Drawing.Size(850, 31);
+            this.lbl_ThisDate.TabIndex = 1;
+            this.lbl_ThisDate.Text = "19.02.2022";
+            this.lbl_ThisDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
@@ -1082,5 +1090,6 @@
         private Panel panel23;
         private ComboBox cmb_StatusChoose;
         private TableLayoutPanel pnl_Calendar;
+        private Label lbl_ThisDate;
     }
 }
