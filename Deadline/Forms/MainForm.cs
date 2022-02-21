@@ -10,35 +10,79 @@ namespace Deadline
         //tmp переменные
         bool isDragging = false;
         Point startPoint;
-        Size tmpsz;
-        Point tmppoint;
+        Control tmpParent;
 
         public MainForm()
         {
             InitializeComponent();
-            tmpsz = new(Width, Height);
-            tmppoint = new(this.Location.X, this.Location.Y);
+
             pnl_CreatePanel.SelectedTab = page_Clear;
+        }
+
+        public MainForm(string path)
+        {
+            InitializeComponent();
+            try
+            {
+                FileInfo info = new FileInfo(path);
+                if (info.Extension == ".dlproj")
+                {
+                    Deserealize(path);
+
+                    UpdateAll();
+                    pnl_CreatePanel.SelectedTab = page_ProjInfo;
+                }
+            }
+            catch
+            {
+                pnl_CreatePanel.SelectedTab = page_Clear;
+            }
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (isDragging && e.Button == MouseButtons.Left)
             {
-                Point p = PointToScreen(e.Location);
-                Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+                if (sender is Control pan)
+                    pan.Location = new Point(e.X - this.startPoint.X + pan.Location.X, e.Y - this.startPoint.Y + pan.Location.Y);
             }
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
+            if (sender is Panel p && !isDragging)
+            {
+                tmpParent = p.Parent;
+                p.Parent = page_TaskBoard;
+                p.BringToFront();
+            }
+
             isDragging = true;
             startPoint = new Point(e.X, e.Y);
         }
 
         private void MainForm_MouseUp(object sender, MouseEventArgs e)
         {
-            isDragging = false;
+           if (sender is Panel p)
+           {
+                int columnSZ = pnl_TaskBoard.Width / 3;
+                page_TaskBoard.Controls.Remove(p);
+
+                if (p.Location.X <= columnSZ)
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.ToDo;
+                }
+                else if (p.Location.X <= columnSZ * 2)
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.InProcess;
+                }
+                else
+                {
+                    project.Tasks[(int)p.Tag].Status = TaskStatus.Complete;
+                }
+                UpdateAll();
+           }
+           isDragging = false;
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
@@ -108,6 +152,72 @@ namespace Deadline
             lbl_CompletedCount.Text = AddCountToString(lbl_CompletedCount.Text, TaskStatus.Complete);
         }
 
+        private void UpdateTaskBoard()
+        {
+            ClearTaskBoard();
+            foreach (var t in project.Tasks)
+            {
+                TaskDirector task = new TaskDirector(t);
+
+                if (t.Status == TaskStatus.ToDo)
+                    pnl_ToDo.Controls.Add(task.BuildFullTask());
+                if (t.Status == TaskStatus.InProcess)
+                    pnl_InProcess.Controls.Add(task.BuildFullTask());
+                if (t.Status == TaskStatus.Complete)
+                    pnl_Complete.Controls.Add(task.BuildFullTask());
+            }
+            AddHandlersToTasks();
+        }
+
+        private void AddHandlersToTasks()
+        {
+            foreach(var t in pnl_ToDo.Controls)
+            {
+                if(t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+            foreach (var t in pnl_InProcess.Controls)
+            {
+                if (t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+            foreach (var t in pnl_Complete.Controls)
+            {
+                if (t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                }
+            }
+
+        }
+
+        private void UpdateTaskList()
+        {
+            ClearTaskList();
+            foreach (var t in project.Tasks)
+            {
+                TaskDirector task = new TaskDirector(t);
+                pnl_TaskList.Controls.Add(task.BuildFullTask());
+            }
+        }
+
+        private void UpdateAll()
+        {
+            UpdateTaskBoard();
+            UpdateTaskList();
+            UpdateProjInfo();
+        }
+
         private string AddCountToString(string text, TaskStatus status)
         {
             return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
@@ -128,13 +238,21 @@ namespace Deadline
             }
         }
 
-        private void UpdateTaskList()
+        private void ClearTaskBoard()
         {
             ClearTaskList();
             foreach(var t in project.Tasks)
+            while (pnl_ToDo.Controls.Count != 0)
             {
-                TaskDirector task = new TaskDirector(t);
-                pnl_TaskList.Controls.Add(task.BuildFullTask());
+                pnl_ToDo.Controls.RemoveAt(0);
+            }
+            while (pnl_InProcess.Controls.Count != 0)
+            {
+                pnl_InProcess.Controls.RemoveAt(0);
+            }
+            while (pnl_Complete.Controls.Count != 0)
+            {
+                pnl_Complete.Controls.RemoveAt(0);
             }
         }
 
@@ -144,7 +262,6 @@ namespace Deadline
             {
                 pnl_CreatePanel.SelectedTab = page_CreateTask;
                 ClearCreateTaskMenu();
-                
             }
         }
 
@@ -152,35 +269,57 @@ namespace Deadline
         {
             project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
 
-            UpdateProjInfo();
-            UpdateTaskList();
+            UpdateAll();
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
         }
 
         private void btn_SaveProj_Click(object sender, EventArgs e)
         {
-            if (project != null)
+            if(project != null)
             {
-                SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine Project (*.dlproj)|*.dlproj" };
+                SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    using FileStream fs = new FileStream(sfd.FileName, FileMode.Create);
-                    JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
+                    Serealize(sfd.FileName);
                 }
             }
         }
 
         private void btn_OpenProj_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine Project (*.dlproj)|*.dlproj" };
-            if (ofd.ShowDialog() == DialogResult.OK)
+            OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
+            if(ofd.ShowDialog() == DialogResult.OK)
             {
-                using FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
-                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+                Deserealize(ofd.FileName);
 
-                UpdateProjInfo();
-                UpdateTaskList();
+                UpdateAll();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            }
+        }
+
+        private void Serealize(string fileName)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(fileName, FileMode.Create);
+                JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Deserealize(string path)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(path, FileMode.Open);
+                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

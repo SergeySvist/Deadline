@@ -20,7 +20,7 @@ namespace Deadline
 
         public void AddTask(string name, string description, DateTime lastdate, TaskStatus status)
         {
-            Tasks.Add(new Task(name, description, lastdate, status));
+            Tasks.Add(new Task(Tasks.Count, name, description, lastdate, status));
         }
 
         public void DeleteTask(Task task)

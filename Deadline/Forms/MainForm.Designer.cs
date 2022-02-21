@@ -38,42 +38,20 @@
             this.pnl_MainPanel = new Deadline.CustomTabControl();
             this.page_TaskList = new System.Windows.Forms.TabPage();
             this.pnl_TaskList = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.page_TaskBoard = new System.Windows.Forms.TabPage();
             this.pnl_TaskBoard = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnl_ToDo = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnl_InProcess = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnl_Complete = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.page_Calendar = new System.Windows.Forms.TabPage();
+            this.pnl_Calendar = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_ThisDate = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pnl_CreatePanel = new Deadline.CustomTabControl();
             this.page_ProjInfo = new System.Windows.Forms.TabPage();
@@ -122,22 +100,12 @@
             this.panel1.SuspendLayout();
             this.pnl_MainPanel.SuspendLayout();
             this.page_TaskList.SuspendLayout();
-            this.pnl_TaskList.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.page_TaskBoard.SuspendLayout();
             this.pnl_TaskBoard.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.pnl_ToDo.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.pnl_InProcess.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.page_Calendar.SuspendLayout();
             this.pnl_CreatePanel.SuspendLayout();
             this.page_ProjInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -155,9 +123,6 @@
             this.MainIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.MainIcon.TabIndex = 1;
             this.MainIcon.TabStop = false;
-            this.MainIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.MainIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.MainIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // lbl_Deadline
             // 
@@ -169,9 +134,6 @@
             this.lbl_Deadline.Size = new System.Drawing.Size(114, 32);
             this.lbl_Deadline.TabIndex = 2;
             this.lbl_Deadline.Text = "DeadLine";
-            this.lbl_Deadline.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.lbl_Deadline.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
-            this.lbl_Deadline.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // btn_Close
             // 
@@ -275,137 +237,12 @@
             // 
             // pnl_TaskList
             // 
-            this.pnl_TaskList.Controls.Add(this.panel2);
-            this.pnl_TaskList.Controls.Add(this.panel4);
+            this.pnl_TaskList.AutoScroll = true;
             this.pnl_TaskList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_TaskList.Location = new System.Drawing.Point(3, 3);
             this.pnl_TaskList.Name = "pnl_TaskList";
             this.pnl_TaskList.Size = new System.Drawing.Size(850, 561);
             this.pnl_TaskList.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(200, 114);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(10, 25);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(180, 79);
-            this.panel3.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(97, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "11.02.2022 12:00";
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(0, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 19);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "To Do";
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 60);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Desctiption";
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(10, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Task1";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(209, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(10);
-            this.panel4.Size = new System.Drawing.Size(200, 114);
-            this.panel4.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(10, 25);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(180, 79);
-            this.panel5.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(71, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "11.02.2022 12:00";
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(0, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 19);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "In Process";
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(180, 60);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Desctiption";
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(10, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Task2";
             // 
             // page_TaskBoard
             // 
@@ -421,6 +258,7 @@
             // 
             // pnl_TaskBoard
             // 
+            this.pnl_TaskBoard.AutoScroll = true;
             this.pnl_TaskBoard.ColumnCount = 3;
             this.pnl_TaskBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.pnl_TaskBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
@@ -450,75 +288,13 @@
             // 
             // pnl_ToDo
             // 
+            this.pnl_ToDo.AllowDrop = true;
             this.pnl_ToDo.AutoScroll = true;
-            this.pnl_ToDo.Controls.Add(this.panel9);
             this.pnl_ToDo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_ToDo.Location = new System.Drawing.Point(10, 40);
             this.pnl_ToDo.Name = "pnl_ToDo";
             this.pnl_ToDo.Size = new System.Drawing.Size(267, 515);
             this.pnl_ToDo.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel9.Controls.Add(this.panel18);
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(10);
-            this.panel9.Size = new System.Drawing.Size(200, 114);
-            this.panel9.TabIndex = 2;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel18.Controls.Add(this.label12);
-            this.panel18.Controls.Add(this.label13);
-            this.panel18.Controls.Add(this.label14);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(10, 25);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(180, 79);
-            this.panel18.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(71, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 19);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "11.02.2022 12:00";
-            // 
-            // label13
-            // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(0, 60);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 19);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "To Do";
-            // 
-            // label14
-            // 
-            this.label14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label14.ForeColor = System.Drawing.SystemColors.Control;
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(180, 60);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Desctiption";
-            // 
-            // label15
-            // 
-            this.label15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label15.Location = new System.Drawing.Point(10, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(180, 15);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Task1";
             // 
             // label9
             // 
@@ -545,75 +321,13 @@
             // 
             // pnl_InProcess
             // 
+            this.pnl_InProcess.AllowDrop = true;
             this.pnl_InProcess.AutoScroll = true;
-            this.pnl_InProcess.Controls.Add(this.panel19);
             this.pnl_InProcess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_InProcess.Location = new System.Drawing.Point(10, 40);
             this.pnl_InProcess.Name = "pnl_InProcess";
             this.pnl_InProcess.Size = new System.Drawing.Size(267, 515);
             this.pnl_InProcess.TabIndex = 1;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel19.Controls.Add(this.panel20);
-            this.panel19.Controls.Add(this.label19);
-            this.panel19.Location = new System.Drawing.Point(3, 3);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(10);
-            this.panel19.Size = new System.Drawing.Size(200, 114);
-            this.panel19.TabIndex = 3;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
-            this.panel20.Controls.Add(this.label16);
-            this.panel20.Controls.Add(this.label17);
-            this.panel20.Controls.Add(this.label18);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(10, 25);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(180, 79);
-            this.panel20.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(71, 60);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(109, 19);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "11.02.2022 12:00";
-            // 
-            // label17
-            // 
-            this.label17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(0, 60);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 19);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "In Process";
-            // 
-            // label18
-            // 
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(0, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(180, 60);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Desctiption";
-            // 
-            // label19
-            // 
-            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label19.Location = new System.Drawing.Point(10, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(180, 15);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Task2";
             // 
             // label10
             // 
@@ -640,6 +354,7 @@
             // 
             // pnl_Complete
             // 
+            this.pnl_Complete.AllowDrop = true;
             this.pnl_Complete.AutoScroll = true;
             this.pnl_Complete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Complete.Location = new System.Drawing.Point(10, 40);
@@ -662,12 +377,49 @@
             // page_Calendar
             // 
             this.page_Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
+            this.page_Calendar.Controls.Add(this.pnl_Calendar);
+            this.page_Calendar.Controls.Add(this.lbl_ThisDate);
             this.page_Calendar.Location = new System.Drawing.Point(4, 54);
             this.page_Calendar.Name = "page_Calendar";
             this.page_Calendar.Padding = new System.Windows.Forms.Padding(3);
             this.page_Calendar.Size = new System.Drawing.Size(856, 567);
             this.page_Calendar.TabIndex = 2;
             this.page_Calendar.Text = "Calendar";
+            // 
+            // pnl_Calendar
+            // 
+            this.pnl_Calendar.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+            this.pnl_Calendar.ColumnCount = 7;
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.pnl_Calendar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Calendar.Location = new System.Drawing.Point(3, 34);
+            this.pnl_Calendar.Name = "pnl_Calendar";
+            this.pnl_Calendar.RowCount = 5;
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnl_Calendar.Size = new System.Drawing.Size(850, 530);
+            this.pnl_Calendar.TabIndex = 0;
+            // 
+            // lbl_ThisDate
+            // 
+            this.lbl_ThisDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_ThisDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ThisDate.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_ThisDate.Location = new System.Drawing.Point(3, 3);
+            this.lbl_ThisDate.Name = "lbl_ThisDate";
+            this.lbl_ThisDate.Size = new System.Drawing.Size(850, 31);
+            this.lbl_ThisDate.TabIndex = 1;
+            this.lbl_ThisDate.Text = "19.02.2022";
+            this.lbl_ThisDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
@@ -1248,25 +1000,15 @@
             this.panel1.ResumeLayout(false);
             this.pnl_MainPanel.ResumeLayout(false);
             this.page_TaskList.ResumeLayout(false);
-            this.pnl_TaskList.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.page_TaskBoard.ResumeLayout(false);
             this.pnl_TaskBoard.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.pnl_ToDo.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.pnl_InProcess.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.page_Calendar.ResumeLayout(false);
             this.pnl_CreatePanel.ResumeLayout(false);
             this.page_ProjInfo.ResumeLayout(false);
             this.page_ProjInfo.PerformLayout();
@@ -1304,19 +1046,7 @@
         private TabPage page_TaskBoard;
         private TabPage page_Calendar;
         private FlowLayoutPanel pnl_TaskList;
-        private Panel panel2;
-        private Label label1;
-        private Panel panel3;
         private TableLayoutPanel pnl_TaskBoard;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Panel panel4;
-        private Panel panel5;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
         private Panel panel10;
         private Label lbl_ProgressPercent;
         private Label lbl_Progress;
@@ -1335,21 +1065,9 @@
         private Panel panel13;
         private Panel panel6;
         private FlowLayoutPanel pnl_ToDo;
-        private Panel panel9;
-        private Panel panel18;
-        private Label label12;
-        private Label label13;
-        private Label label14;
-        private Label label15;
         private Label label9;
         private Panel panel7;
         private FlowLayoutPanel pnl_InProcess;
-        private Panel panel19;
-        private Panel panel20;
-        private Label label16;
-        private Label label17;
-        private Label label18;
-        private Label label19;
         private Label label10;
         private Panel panel8;
         private FlowLayoutPanel pnl_Complete;
@@ -1371,5 +1089,7 @@
         private Label label22;
         private Panel panel23;
         private ComboBox cmb_StatusChoose;
+        private TableLayoutPanel pnl_Calendar;
+        private Label lbl_ThisDate;
     }
 }

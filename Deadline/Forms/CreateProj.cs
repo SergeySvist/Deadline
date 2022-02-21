@@ -30,5 +30,14 @@ namespace Deadline
         {
             this.Close();
         }
+
+        private void CreateProj_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                btn_Ok_Click(sender, e);
+            if (e.KeyData == Keys.Escape)
+                btn_Cancel_Click(sender, e);
+        }
+
     }
 }

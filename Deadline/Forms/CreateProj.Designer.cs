@@ -57,6 +57,7 @@
             // 
             // btn_Cancel
             // 
+            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Cancel.Location = new System.Drawing.Point(210, 112);
             this.btn_Cancel.Name = "btn_Cancel";
@@ -69,6 +70,7 @@
             // btn_Ok
             // 
             this.btn_Ok.AutoSize = true;
+            this.btn_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_Ok.Location = new System.Drawing.Point(168, 112);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(36, 25);
@@ -89,9 +91,11 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "CreateProj";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Create Project";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CreateProj_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

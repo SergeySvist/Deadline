@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Deadline
 {
@@ -33,6 +34,7 @@ namespace Deadline
             mainPanel.Size = new Size(200, 115);
             mainPanel.BackColor = (Color)task.MainColor;
             mainPanel.Padding = new Padding(10);
+            mainPanel.Tag = task.Id;
         }
 
         public void CreateNameLabel()
@@ -86,5 +88,6 @@ namespace Deadline
 
             secondPanel.Controls.Add(date);
         }
+
     }
 }
