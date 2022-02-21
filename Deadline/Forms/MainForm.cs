@@ -15,7 +15,6 @@ namespace Deadline
         public MainForm()
         {
             InitializeComponent();
-
             pnl_CreatePanel.SelectedTab = page_Clear;
         }
 
@@ -211,8 +210,17 @@ namespace Deadline
             }
         }
 
+        private void UpdateCalendar()
+        {
+            ClearCalendar();
+            Calendar c = new Calendar(project.Tasks);
+            lbl_ThisDate.Text = c.Now.ToShortDateString();
+            pnl_Calendar.Controls.AddRange(c.panels);
+        }
+
         private void UpdateAll()
         {
+            UpdateCalendar();
             UpdateTaskBoard();
             UpdateTaskList();
             UpdateProjInfo();
@@ -232,28 +240,19 @@ namespace Deadline
 
         private void ClearTaskList()
         {
-            while(pnl_TaskList.Controls.Count != 0)
-            {
-                pnl_TaskList.Controls.RemoveAt(0);
-            }
+            pnl_TaskList.Controls.Clear();
         }
 
         private void ClearTaskBoard()
         {
-            ClearTaskList();
-            foreach(var t in project.Tasks)
-            while (pnl_ToDo.Controls.Count != 0)
-            {
-                pnl_ToDo.Controls.RemoveAt(0);
-            }
-            while (pnl_InProcess.Controls.Count != 0)
-            {
-                pnl_InProcess.Controls.RemoveAt(0);
-            }
-            while (pnl_Complete.Controls.Count != 0)
-            {
-                pnl_Complete.Controls.RemoveAt(0);
-            }
+            pnl_ToDo.Controls.Clear();
+            pnl_InProcess.Controls.Clear();
+            pnl_Complete.Controls.Clear();
+        }
+
+        private void ClearCalendar()
+        {
+            pnl_Calendar.Controls.Clear();
         }
 
         private void btn_CreateTask_Click(object sender, EventArgs e)
