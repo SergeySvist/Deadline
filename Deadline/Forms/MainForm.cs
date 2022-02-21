@@ -214,7 +214,7 @@ namespace Deadline
         {
             ClearCalendar();
             Calendar c = new Calendar(project.Tasks);
-            lbl_ThisDate.Text = c.Now.ToShortDateString();
+            lbl_ThisDate.Text = c.Now.ToLongDateString();
             pnl_Calendar.Controls.AddRange(c.panels);
         }
 
