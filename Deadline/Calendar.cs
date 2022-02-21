@@ -56,9 +56,10 @@ namespace Deadline
             res.AutoScroll = true;
             res.Dock= DockStyle.Fill;
             res.BackColor = Color.FromArgb(31, 31, 37);
+
             foreach(var t in tasks)
             {
-                if(t.LastDate.Year == Now.Year && t.LastDate.Month == Now.Month && t.LastDate.Day == day)
+                if (t.LastDate.Year == Now.Year && t.LastDate.Month == Now.Month && t.LastDate.Day == day && t.Status != TaskStatus.Complete)
                 {
                     Panel tmp = new Panel();
                     tmp.Size = new Size(15, 15);
