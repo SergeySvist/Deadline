@@ -54,6 +54,8 @@ namespace Deadline
                 tmpParent = p.Parent;
                 p.Parent = page_TaskBoard;
                 p.BringToFront();
+                p.BackColor = Color.FromArgb(150, p.BackColor.R, p.BackColor.G, p.BackColor.B);
+                p.Controls[0].BackColor = p.BackColor;
             }
 
             isDragging = true;
@@ -133,7 +135,7 @@ namespace Deadline
             if (cp.Text != "")
             {
                 project = new Project(cp.Text);
-                UpdateProjInfo();
+                UpdateAll();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
             }
         }
