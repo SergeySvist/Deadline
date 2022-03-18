@@ -10,7 +10,6 @@ namespace Deadline
         //tmp переменные
         bool isDragging = false;
         Point startPoint;
-        Control tmpParent;
 
         public MainForm()
         {
@@ -38,6 +37,7 @@ namespace Deadline
             }
         }
 
+        // Handlers
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging && e.Button == MouseButtons.Left)
@@ -51,7 +51,6 @@ namespace Deadline
         {
             if (sender is Panel p && !isDragging)
             {
-                tmpParent = p.Parent;
                 p.Parent = page_TaskBoard;
                 p.BringToFront();
             }
@@ -81,6 +80,7 @@ namespace Deadline
                 }
                 UpdateAll();
            }
+
            isDragging = false;
         }
 
@@ -138,6 +138,54 @@ namespace Deadline
             }
         }
 
+        private void btn_CreateTask_Click(object sender, EventArgs e)
+        {
+            if (project != null)
+            {
+                pnl_CreatePanel.SelectedTab = page_CreateTask;
+                ClearCreateTaskMenu();
+            }
+        }
+
+        private void btn_Create_Click(object sender, EventArgs e)
+        {
+            project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
+
+            UpdateAll();
+            pnl_CreatePanel.SelectedTab = page_ProjInfo;
+        }
+
+        private void btn_SaveProj_Click(object sender, EventArgs e)
+        {
+            if(project != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Serealize(sfd.FileName);
+                }
+            }
+        }
+
+        private void btn_OpenProj_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                Deserealize(ofd.FileName);
+
+                UpdateAll();
+                pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            }
+        }
+
+        // Support methods
+
+        private string AddCountToString(string text, TaskStatus status)
+        {
+            return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
+        }
+
         private void UpdateProjInfo()
         {
             lbl_ProjName.Text = project.Name;
@@ -170,9 +218,9 @@ namespace Deadline
 
         private void AddHandlersToTasks()
         {
-            foreach(var t in pnl_ToDo.Controls)
+            foreach (var t in pnl_ToDo.Controls)
             {
-                if(t is Panel p)
+                if (t is Panel p)
                 {
                     p.MouseDown += MainForm_MouseDown;
                     p.MouseUp += MainForm_MouseUp;
@@ -226,11 +274,6 @@ namespace Deadline
             UpdateProjInfo();
         }
 
-        private string AddCountToString(string text, TaskStatus status)
-        {
-            return text.Remove(text.IndexOf(":") + 2).Insert(text.IndexOf(":") + 2, $"{project.GetCountTasksFromStatus(status)}");
-        }
-
         private void ClearCreateTaskMenu()
         {
             rch_NameInput.Text = "";
@@ -255,47 +298,6 @@ namespace Deadline
             pnl_Calendar.Controls.Clear();
         }
 
-        private void btn_CreateTask_Click(object sender, EventArgs e)
-        {
-            if (project != null)
-            {
-                pnl_CreatePanel.SelectedTab = page_CreateTask;
-                ClearCreateTaskMenu();
-            }
-        }
-
-        private void btn_Create_Click(object sender, EventArgs e)
-        {
-            project.AddTask(rch_NameInput.Text, rch_DescInput.Text, date_LastDateChoose.Value, (TaskStatus)cmb_StatusChoose.SelectedIndex);
-
-            UpdateAll();
-            pnl_CreatePanel.SelectedTab = page_ProjInfo;
-        }
-
-        private void btn_SaveProj_Click(object sender, EventArgs e)
-        {
-            if(project != null)
-            {
-                SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    Serealize(sfd.FileName);
-                }
-            }
-        }
-
-        private void btn_OpenProj_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
-            if(ofd.ShowDialog() == DialogResult.OK)
-            {
-                Deserealize(ofd.FileName);
-
-                UpdateAll();
-                pnl_CreatePanel.SelectedTab = page_ProjInfo;
-            }
-        }
-
         private void Serealize(string fileName)
         {
             try
@@ -316,10 +318,11 @@ namespace Deadline
                 using FileStream fs = new FileStream(path, FileMode.Open);
                 project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

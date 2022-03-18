@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Deadline
 {
-    //костыль для кастомизации TabControl 
+    //костыль для кастомизации TabControl ( нашел в инете ¯\_(ツ)_/¯ )
 
     [
         ComVisible(true), ClassInterface(ClassInterfaceType.AutoDispatch),

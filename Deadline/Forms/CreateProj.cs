@@ -12,7 +12,7 @@ namespace Deadline
 {
     public partial class CreateProj : Form
     {
-        public string Text { get; set; }
+        public new string  Text { get; set; }
 
         public CreateProj()
         {

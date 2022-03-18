@@ -96,6 +96,28 @@
             this.btn_CreateProj = new System.Windows.Forms.Button();
             this.lbl_CreateTaskShow = new System.Windows.Forms.Label();
             this.btn_CreateTask = new System.Windows.Forms.Button();
+            this.page_TaskEdit = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lbl_EditTask = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.btn_CancelCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainIcon)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnl_MainPanel.SuspendLayout();
@@ -112,6 +134,7 @@
             this.panel14.SuspendLayout();
             this.page_CreateTask.SuspendLayout();
             this.pnl_ControlPanel.SuspendLayout();
+            this.page_TaskEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainIcon
@@ -443,6 +466,7 @@
             this.pnl_CreatePanel.Controls.Add(this.page_ProjInfo);
             this.pnl_CreatePanel.Controls.Add(this.page_CreateTask);
             this.pnl_CreatePanel.Controls.Add(this.page_Clear);
+            this.pnl_CreatePanel.Controls.Add(this.page_TaskEdit);
             this.pnl_CreatePanel.Divider = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
             this.pnl_CreatePanel.DividerSize = 1;
             this.pnl_CreatePanel.Dock = System.Windows.Forms.DockStyle.Right;
@@ -645,6 +669,8 @@
             // page_CreateTask
             // 
             this.page_CreateTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
+            this.page_CreateTask.Controls.Add(this.button1);
+            this.page_CreateTask.Controls.Add(this.panel20);
             this.page_CreateTask.Controls.Add(this.cmb_StatusChoose);
             this.page_CreateTask.Controls.Add(this.label23);
             this.page_CreateTask.Controls.Add(this.panel25);
@@ -656,10 +682,10 @@
             this.page_CreateTask.Controls.Add(this.panel22);
             this.page_CreateTask.Controls.Add(this.rch_NameInput);
             this.page_CreateTask.Controls.Add(this.label20);
-            this.page_CreateTask.Controls.Add(this.button1);
             this.page_CreateTask.Controls.Add(this.panel21);
             this.page_CreateTask.Controls.Add(this.panel24);
             this.page_CreateTask.Controls.Add(this.lbl_CreateTask);
+            this.page_CreateTask.Controls.Add(this.btn_CancelCreate);
             this.page_CreateTask.Location = new System.Drawing.Point(4, 5);
             this.page_CreateTask.Name = "page_CreateTask";
             this.page_CreateTask.Padding = new System.Windows.Forms.Padding(10, 10, 10, 30);
@@ -786,7 +812,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(10, 532);
+            this.button1.Location = new System.Drawing.Point(10, 468);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 54);
             this.button1.TabIndex = 5;
@@ -974,6 +1000,260 @@
             this.btn_CreateTask.UseVisualStyleBackColor = false;
             this.btn_CreateTask.Click += new System.EventHandler(this.btn_CreateTask_Click);
             // 
+            // page_TaskEdit
+            // 
+            this.page_TaskEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(22)))));
+            this.page_TaskEdit.Controls.Add(this.btn_Edit);
+            this.page_TaskEdit.Controls.Add(this.panel19);
+            this.page_TaskEdit.Controls.Add(this.btn_Cancel);
+            this.page_TaskEdit.Controls.Add(this.panel18);
+            this.page_TaskEdit.Controls.Add(this.comboBox1);
+            this.page_TaskEdit.Controls.Add(this.label1);
+            this.page_TaskEdit.Controls.Add(this.panel2);
+            this.page_TaskEdit.Controls.Add(this.dateTimePicker1);
+            this.page_TaskEdit.Controls.Add(this.label2);
+            this.page_TaskEdit.Controls.Add(this.panel3);
+            this.page_TaskEdit.Controls.Add(this.richTextBox1);
+            this.page_TaskEdit.Controls.Add(this.label3);
+            this.page_TaskEdit.Controls.Add(this.panel4);
+            this.page_TaskEdit.Controls.Add(this.textBox1);
+            this.page_TaskEdit.Controls.Add(this.label4);
+            this.page_TaskEdit.Controls.Add(this.btn_Delete);
+            this.page_TaskEdit.Controls.Add(this.panel5);
+            this.page_TaskEdit.Controls.Add(this.panel9);
+            this.page_TaskEdit.Controls.Add(this.lbl_EditTask);
+            this.page_TaskEdit.Location = new System.Drawing.Point(4, 5);
+            this.page_TaskEdit.Name = "page_TaskEdit";
+            this.page_TaskEdit.Padding = new System.Windows.Forms.Padding(10, 10, 10, 30);
+            this.page_TaskEdit.Size = new System.Drawing.Size(243, 616);
+            this.page_TaskEdit.TabIndex = 4;
+            this.page_TaskEdit.Text = "tabPage1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ToDo",
+            "InProcess",
+            "Complete"});
+            this.comboBox1.Location = new System.Drawing.Point(10, 390);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 23);
+            this.comboBox1.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(10, 369);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 21);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Status:";
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(10, 339);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(223, 30);
+            this.panel2.TabIndex = 30;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 316);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(223, 23);
+            this.dateTimePicker1.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(10, 295);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 21);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Lasd Date:";
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(10, 265);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(223, 30);
+            this.panel3.TabIndex = 27;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Location = new System.Drawing.Point(10, 152);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(223, 113);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(10, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 21);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Description:";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(10, 116);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(223, 15);
+            this.panel4.TabIndex = 24;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(10, 93);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(223, 23);
+            this.textBox1.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(10, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 21);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Name:";
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.btn_Delete.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Delete.FlatAppearance.BorderSize = 0;
+            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Delete.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_Delete.Location = new System.Drawing.Point(10, 546);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(223, 40);
+            this.btn_Delete.TabIndex = 20;
+            this.btn_Delete.Text = "Delete";
+            this.btn_Delete.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(10, 57);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(223, 15);
+            this.panel5.TabIndex = 23;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(37)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(10, 47);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 75);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(223, 10);
+            this.panel9.TabIndex = 19;
+            // 
+            // lbl_EditTask
+            // 
+            this.lbl_EditTask.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_EditTask.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_EditTask.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_EditTask.Location = new System.Drawing.Point(10, 10);
+            this.lbl_EditTask.Name = "lbl_EditTask";
+            this.lbl_EditTask.Size = new System.Drawing.Size(223, 37);
+            this.lbl_EditTask.TabIndex = 18;
+            this.lbl_EditTask.Text = "Edit Task";
+            this.lbl_EditTask.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel18
+            // 
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel18.Location = new System.Drawing.Point(10, 536);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(223, 10);
+            this.panel18.TabIndex = 33;
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Cancel.FlatAppearance.BorderSize = 0;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Cancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_Cancel.Location = new System.Drawing.Point(10, 496);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(223, 40);
+            this.btn_Cancel.TabIndex = 34;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
+            // 
+            // panel19
+            // 
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel19.Location = new System.Drawing.Point(10, 486);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(223, 10);
+            this.panel19.TabIndex = 35;
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.btn_Edit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Edit.FlatAppearance.BorderSize = 0;
+            this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Edit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_Edit.Location = new System.Drawing.Point(10, 446);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(223, 40);
+            this.btn_Edit.TabIndex = 36;
+            this.btn_Edit.Text = "Edit";
+            this.btn_Edit.UseVisualStyleBackColor = false;
+            // 
+            // panel20
+            // 
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel20.Location = new System.Drawing.Point(10, 522);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(223, 10);
+            this.panel20.TabIndex = 18;
+            // 
+            // btn_CancelCreate
+            // 
+            this.btn_CancelCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(73)))));
+            this.btn_CancelCreate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_CancelCreate.FlatAppearance.BorderSize = 0;
+            this.btn_CancelCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CancelCreate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_CancelCreate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_CancelCreate.Location = new System.Drawing.Point(10, 532);
+            this.btn_CancelCreate.Name = "btn_CancelCreate";
+            this.btn_CancelCreate.Size = new System.Drawing.Size(223, 54);
+            this.btn_CancelCreate.TabIndex = 19;
+            this.btn_CancelCreate.Text = "Cancel";
+            this.btn_CancelCreate.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1018,6 +1298,8 @@
             this.page_CreateTask.PerformLayout();
             this.pnl_ControlPanel.ResumeLayout(false);
             this.pnl_ControlPanel.PerformLayout();
+            this.page_TaskEdit.ResumeLayout(false);
+            this.page_TaskEdit.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1091,5 +1373,27 @@
         private ComboBox cmb_StatusChoose;
         private TableLayoutPanel pnl_Calendar;
         private Label lbl_ThisDate;
+        private TabPage page_TaskEdit;
+        private Panel panel20;
+        private Button btn_CancelCreate;
+        private Button btn_Edit;
+        private Panel panel19;
+        private Button btn_Cancel;
+        private Panel panel18;
+        private ComboBox comboBox1;
+        private Label label1;
+        private Panel panel2;
+        private DateTimePicker dateTimePicker1;
+        private Label label2;
+        private Panel panel3;
+        private RichTextBox richTextBox1;
+        private Label label3;
+        private Panel panel4;
+        private TextBox textBox1;
+        private Label label4;
+        private Button btn_Delete;
+        private Panel panel5;
+        private Panel panel9;
+        private Label lbl_EditTask;
     }
 }
