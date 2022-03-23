@@ -10,6 +10,7 @@ namespace Deadline
         //tmp переменные
         bool isDragging = false;
         Point startPoint;
+        int selectedTaskId;
 
         public MainForm()
         {
@@ -181,6 +182,30 @@ namespace Deadline
             }
         }
 
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            ClearCreateTaskMenu();
+            pnl_CreatePanel.SelectedTab = page_ProjInfo;
+        }
+
+        private void TaskEdit(object sender,EventArgs e)
+        {
+            if (sender is Control task)
+            {
+                selectedTaskId = (int)task.Tag;
+
+
+                pnl_CreatePanel.SelectedTab = page_TaskEdit;
+            }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            project.DeleteTask(project.Tasks[selectedTaskId]);
+            btn_Cancel_Click(sender, e);
+            UpdateAll();
+        }
+
         // Support methods
 
         private string AddCountToString(string text, TaskStatus status)
@@ -215,39 +240,43 @@ namespace Deadline
                 if (t.Status == TaskStatus.Complete)
                     pnl_Complete.Controls.Add(task.BuildFullTask());
             }
-            AddHandlersToTasks();
+            AddHandlersToTasks_ToDo(pnl_TaskBoard);
         }
 
-        private void AddHandlersToTasks()
+        private void AddHandlersToTasks_List()
         {
-            foreach (var t in pnl_ToDo.Controls)
+            foreach (var t in pnl_TaskList.Controls)
             {
-                if (t is Panel p)
-                {
-                    p.MouseDown += MainForm_MouseDown;
-                    p.MouseUp += MainForm_MouseUp;
-                    p.MouseMove += MainForm_MouseMove;
-                }
+                AddDoubleClickToAllTask(t as Panel);
             }
-            foreach (var t in pnl_InProcess.Controls)
-            {
-                if (t is Panel p)
-                {
-                    p.MouseDown += MainForm_MouseDown;
-                    p.MouseUp += MainForm_MouseUp;
-                    p.MouseMove += MainForm_MouseMove;
-                }
-            }
-            foreach (var t in pnl_Complete.Controls)
-            {
-                if (t is Panel p)
-                {
-                    p.MouseDown += MainForm_MouseDown;
-                    p.MouseUp += MainForm_MouseUp;
-                    p.MouseMove += MainForm_MouseMove;
-                }
-            }
+        }
 
+        private void AddDoubleClickToAllTask(Panel task)
+        {
+            task.DoubleClick += TaskEdit;
+            foreach(var c in task.Controls)
+            {
+                if (c is Panel panel)
+                    AddDoubleClickToAllTask(panel);
+                else if (c is Control control)
+                    control.DoubleClick += TaskEdit;
+            }
+        }
+
+        private void AddHandlersToTasks_ToDo(Panel ToDoPanel)
+        {
+            foreach (var t in ToDoPanel.Controls)
+            {
+                if (t is FlowLayoutPanel fp)
+                    AddHandlersToTasks_ToDo(fp);
+                else if (t is Panel p)
+                {
+                    p.MouseDown += MainForm_MouseDown;
+                    p.MouseUp += MainForm_MouseUp;
+                    p.MouseMove += MainForm_MouseMove;
+                    AddDoubleClickToAllTask(p);
+                }
+            }
         }
 
         private void UpdateTaskList()
@@ -258,6 +287,7 @@ namespace Deadline
                 TaskDirector task = new TaskDirector(t);
                 pnl_TaskList.Controls.Add(task.BuildFullTask());
             }
+            AddHandlersToTasks_List();
         }
 
         private void UpdateCalendar()
@@ -325,6 +355,7 @@ namespace Deadline
                 MessageBox.Show(ex.Message);
             }
         }
+
 
     }
 }

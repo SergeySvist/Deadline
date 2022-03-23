@@ -25,6 +25,10 @@ namespace Deadline
 
         public void DeleteTask(Task task)
         {
+            for(int i = task.Id+1; i < Tasks.Count; i++)
+            {
+                Tasks[i].Id--;
+            }
             Tasks.Remove(task);
         }
 
