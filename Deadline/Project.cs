@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Deadline
@@ -25,7 +26,7 @@ namespace Deadline
 
         public void DeleteTask(Task task)
         {
-            for(int i = task.Id+1; i < Tasks.Count; i++)
+            for (int i = task.Id + 1; i < Tasks.Count; i++)
             {
                 Tasks[i].Id--;
             }
@@ -40,7 +41,7 @@ namespace Deadline
         public int GetCountTasksFromStatus(TaskStatus status)
         {
             int tmp = 0;
-            foreach(var t in Tasks)
+            foreach (var t in Tasks)
             {
                 if (t.Status == status)
                     tmp++;
@@ -52,7 +53,35 @@ namespace Deadline
         {
             if (GetCountAllTasks() == 0)
                 return 0;
-            return (int)(((double)GetCountTasksFromStatus(TaskStatus.Complete) / (double)GetCountAllTasks())*100);
+            return (int)(((double)GetCountTasksFromStatus(TaskStatus.Complete) / (double)GetCountAllTasks()) * 100);
+        }
+
+        public void Serealize(string fileName)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(fileName, FileMode.Create);
+                JsonSerializer.Serialize(fs, this, new JsonSerializerOptions() { WriteIndented = true });
+            }
+            catch { }
+        }
+
+        public void Deserealize(string path)
+        {
+            try
+            {
+                using FileStream fs = new FileStream(path, FileMode.Open);
+                Project proj = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
+                this.Clone(proj);
+            }
+            catch { }
+        }
+
+        public void Clone(Project obj)
+        {
+            this.Name = obj.Name;
+            this.Tasks.Clear();
+            this.Tasks.AddRange(obj.Tasks);
         }
     }
 }

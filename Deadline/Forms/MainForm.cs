@@ -26,7 +26,7 @@ namespace Deadline
                 FileInfo info = new FileInfo(path);
                 if (info.Extension == ".dlproj")
                 {
-                    Deserealize(path);
+                    project.Deserealize(path);
 
                     UpdateAll();
                     pnl_CreatePanel.SelectedTab = page_ProjInfo;
@@ -165,7 +165,7 @@ namespace Deadline
                 SaveFileDialog sfd = new SaveFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj" };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    Serealize(sfd.FileName);
+                    project.Serealize(sfd.FileName);
                 }
             }
         }
@@ -175,7 +175,7 @@ namespace Deadline
             OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                Deserealize(ofd.FileName);
+                project.Deserealize(ofd.FileName);
 
                 UpdateAll();
                 pnl_CreatePanel.SelectedTab = page_ProjInfo;
@@ -329,33 +329,6 @@ namespace Deadline
         {
             pnl_Calendar.Controls.Clear();
         }
-
-        private void Serealize(string fileName)
-        {
-            try
-            {
-                using FileStream fs = new FileStream(fileName, FileMode.Create);
-                JsonSerializer.Serialize(fs, project, new JsonSerializerOptions() { WriteIndented = true });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Deserealize(string path)
-        {
-            try
-            {
-                using FileStream fs = new FileStream(path, FileMode.Open);
-                project = JsonSerializer.Deserialize<Project>(fs, new JsonSerializerOptions() { WriteIndented = true });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
 
     }
 }
