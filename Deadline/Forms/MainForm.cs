@@ -188,15 +188,29 @@ namespace Deadline
             pnl_CreatePanel.SelectedTab = page_ProjInfo;
         }
 
-        private void TaskEdit(object sender,EventArgs e)
+        private void TaskEdit(object sender, EventArgs e)
         {
             if (sender is Control task)
             {
                 selectedTaskId = (int)task.Tag;
-
-
+                txt_NameEdit.Text = project.Tasks[selectedTaskId].Name;
+                rch_DescEdit.Text = project.Tasks[selectedTaskId].Description;
+                date_DateEdit.Value = project.Tasks[selectedTaskId].LastDate;
+                cmb_StatusEdit.SelectedIndex = (int)project.Tasks[selectedTaskId].Status;
+                
                 pnl_CreatePanel.SelectedTab = page_TaskEdit;
             }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            project.Tasks[selectedTaskId].Name = txt_NameEdit.Text;
+            project.Tasks[selectedTaskId].Description = rch_DescEdit.Text;
+            project.Tasks[selectedTaskId].LastDate = date_DateEdit.Value;
+            project.Tasks[selectedTaskId].Status = (TaskStatus)cmb_StatusEdit.SelectedIndex;
+
+            pnl_CreatePanel.SelectedTab = page_ProjInfo;
+            UpdateAll();
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -330,5 +344,6 @@ namespace Deadline
             pnl_Calendar.Controls.Clear();
         }
 
+        
     }
 }
