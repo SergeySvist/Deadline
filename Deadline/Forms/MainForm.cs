@@ -23,6 +23,7 @@ namespace Deadline
             InitializeComponent();
             try
             {
+                project = new Project("");
                 FileInfo info = new FileInfo(path);
                 if (info.Extension == ".dlproj")
                 {
@@ -175,6 +176,7 @@ namespace Deadline
             OpenFileDialog ofd = new OpenFileDialog() { Filter = "DeadLine (*.dlproj)|*.dlproj"};
             if(ofd.ShowDialog() == DialogResult.OK)
             {
+                project = new Project("");
                 project.Deserealize(ofd.FileName);
 
                 UpdateAll();
