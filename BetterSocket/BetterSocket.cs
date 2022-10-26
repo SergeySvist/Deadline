@@ -26,7 +26,6 @@ namespace BetterSocket
                 while (true)
                 {
                     Socket remoteSocket = socket.Accept(); // BLOCKING
-                    Console.WriteLine("connection opened");
 
                     byte[] buffer = new byte[4096];
                     int byteCount = 0;
@@ -40,15 +39,16 @@ namespace BetterSocket
                     
                     //запуск обработчика на действие по определенной команде 
                     var command = Command.Deserialize(input);
-                    actions[command].Invoke();
+                    actions[command]?.Invoke();
 
                     remoteSocket.Shutdown(SocketShutdown.Both);
                     remoteSocket.Close();
                 }
             });
+
         }
 
-        public void AddNewAction(Command command, Action action)
+        public void AddHandler(Command command, Action action)
         {
             actions.Add(command, action);
         }

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deadline", "Deadline\Deadline.csproj", "{33D373D3-DEBD-4BEC-8C29-5469444AA5CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterSocket", "BetterSocket\BetterSocket.csproj", "{4CCFE476-7FB2-4E29-A8F8-766536365611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterSocket", "BetterSocket\BetterSocket.csproj", "{4CCFE476-7FB2-4E29-A8F8-766536365611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadlineServer", "server\DeadlineServer.csproj", "{6DC009E4-B11A-4013-A5BE-B5470D7D622A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4CCFE476-7FB2-4E29-A8F8-766536365611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CCFE476-7FB2-4E29-A8F8-766536365611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CCFE476-7FB2-4E29-A8F8-766536365611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC009E4-B11A-4013-A5BE-B5470D7D622A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC009E4-B11A-4013-A5BE-B5470D7D622A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC009E4-B11A-4013-A5BE-B5470D7D622A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC009E4-B11A-4013-A5BE-B5470D7D622A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
