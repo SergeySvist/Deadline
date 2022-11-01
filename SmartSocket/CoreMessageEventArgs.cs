@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace SmartSocket
 {
-    public class CoreMessageEventArgs: EventArgs
+    public class CoreMessageEventArgs : EventArgs
     {
         public string Message { get; set; }
-        public Socket Socket { get; set; }
-        public CoreMessageEventArgs(string message, Socket socket)
+        public CoreMessageEventArgs(string message)
         {
             Message = message;
-            Socket = socket;
         }
     }
+
 }

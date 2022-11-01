@@ -4,12 +4,14 @@ using System.Text;
 
 namespace SmartSocket
 {
-    public class Core
+    public class Core : ICore
     {
         private Socket localSocket;
         private IPEndPoint endPoint;
         //private List<Socket> remoteSockets;
         public event EventHandler<CoreMessageEventArgs> MessageReceived;
+        public event EventHandler ClientConnected;
+
         public Core(IPAddress ip, int port)
         {
             localSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -17,31 +19,66 @@ namespace SmartSocket
             //remoteSockets = new List<Socket>();
         }
 
-        public string Listening()
+        public void ConnectAndListen(IPAddress ip, int port)
         {
-            localSocket.Bind(endPoint);
-            localSocket.Listen(4096);
-
-            
-            while (true)
+            if (!localSocket.Connected)
             {
-                Socket remoteSocket = localSocket.Accept(); // BLOCKING
-
-                byte[] buffer = new byte[4096];
-                int byteCount = 0;
-                string input = String.Empty;
-
-                do
-                {
-                    byteCount = remoteSocket.Receive(buffer);
-                    input += Encoding.UTF8.GetString(buffer, 0, byteCount);
-                } while (remoteSocket.Available > 0);
-
-                MessageReceived.Invoke(this, new CoreMessageEventArgs(input, remoteSocket));
-
-                remoteSocket.Shutdown(SocketShutdown.Both);
-                remoteSocket.Close();
+                IPEndPoint serverEndPoint = new IPEndPoint(ip, port);
+                localSocket.Connect(serverEndPoint);
+                Task.Run(() => Listening());
             }
+        }
+
+        private void DecodeStreamData(Socket remoteSocket)
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    byte[] buffer = new byte[4096];
+                    int byteCount = 0;
+                    string input = String.Empty;
+
+                    do
+                    {
+                        byteCount = remoteSocket.Receive(buffer);
+                        input += Encoding.UTF8.GetString(buffer, 0, byteCount);
+                    } while (remoteSocket.Available > 0);
+
+                    MessageReceived.Invoke(remoteSocket, new CoreMessageEventArgs(input));
+                }
+            });
+        }
+
+        public void Listening()
+        {
+            if (!localSocket.Connected)
+            {
+                localSocket.Bind(endPoint);
+                localSocket.Listen(4096);
+
+                while (true)
+                {
+                    Socket remoteSocket = localSocket.Accept(); // BLOCKING
+                    ClientConnected.Invoke(remoteSocket, null);
+
+
+                    DecodeStreamData(remoteSocket);
+
+                    //    remoteSocket.Shutdown(SocketShutdown.Both);
+                    //    remoteSocket.Close();
+                }
+            }
+            else
+            {
+                Socket remoteSocket = localSocket;
+                DecodeStreamData(remoteSocket);
+            }
+        }
+
+        public void ServerSend(string message)
+        {
+            Send(localSocket, message);
         }
 
         public void Send(Socket socket, string message)
@@ -51,8 +88,13 @@ namespace SmartSocket
 
         public void MassSend(List<Socket> sockets, string message)
         {
-            foreach(Socket socket in sockets)
+            foreach (Socket socket in sockets)
                 Send(socket, message);
+        }
+
+        public void CloseConnection()
+        {
+            localSocket.Close();
         }
     }
 }
